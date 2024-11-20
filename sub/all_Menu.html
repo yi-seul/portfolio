@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <title>allMenu</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="./css/reset.css" />
+        <style>
+            /*#################### 초기화 (reset) ####################*/
+            a:link,
+            a:visited {
+                color: #000;
+            }
+
+            /*#################### wrap ####################*/
+            #wrap {
+                min-width: 1025px;
+                width: 100%;
+            }
+
+            /*#################### header ####################*/
+
+            /*#################### container ####################*/
+            #container {
+                width: 100%;
+                padding-top: 130px;
+            }
+
+            /*##### menuArea #####*/
+            #menuArea {
+                width: 100%;
+            }
+
+            /*### menu_inn ###*/
+            #menu_inn {
+                width: 300px;
+                padding-left: 203px;
+                float: left;
+            }
+
+            #menu_inn dl {
+                width: 100%;
+                padding: 20px 0;
+                line-height: 30px;
+            }
+            #menu_inn dt {
+                color: #c4c4c4;
+                font-size: 15px;
+                font-weight: 700;
+                line-height: 40px;
+            }
+            #menu_inn dd {
+                font-size: 14px;
+            }
+            #menu_inn dd a:hover {
+                color: #c4c4c4;
+            }
+
+            /*### imgArea ###*/
+            #imgArea {
+                width: 1400px;
+                float: left;
+            }
+            #imgArea h4 {
+                font-size: 50px;
+                font-weight: 400;
+            }
+
+            #imgArea ul {
+                width: 100%;
+            }
+            #imgArea li {
+                width: 500px;
+                padding-right: 15px;
+                padding-bottom: 50px;
+                float: left;
+            }
+            #imgArea li a {
+                display: block;
+                width: 100%;
+            }
+            #imgArea li a .img {
+                display: block;
+                width: 100%;
+                overflow: hidden;
+            }
+            #imgArea li a .img img {
+                width: 100%;
+                transform: scale(1);
+                transition: transform 0.3s linear;
+            }
+            #imgArea li a .img:hover img {
+                transform: scale(1.1);
+            }
+            #imgArea li a .text {
+                display: block;
+                width: 100%;
+                padding-top: 10px;
+                font-size: 14px;
+                font-weight: 700;
+            }
+
+            #menuArea:after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+
+            /*#################### footer ####################*/
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div id="header">
+                <h3>header</h3>
+            </div>
+            <div id="container">
+                <div id="menuArea">
+                    <div id="menu_inn">
+                        <dl>
+                            <dt>WATCHES</dt>
+                            <dd><a href="#" title="all_watches">All Watches</a></dd>
+                            <dd><a href="#" title="our_collections">Our Collections</a></dd>
+                            <dd><a href="#" title="new_releases">New Releases</a></dd>
+                        </dl>
+                        <dl>
+                            <dt>OUR WORLD</dt>
+                            <dd><a href="#" title="born_in_le_brassus">Born in Le Brassus</a></dd>
+                            <dd><a href="#" title="savoir_faire">Savoir-Faire</a></dd>
+                            <dd><a href="#" title="art">AP x Art</a></dd>
+                            <dd><a href="#" title="golf">AP x Golf</a></dd>
+                            <dd><a href="#" title="music">AP x Music</a></dd>
+                            <dd><a href="#" title="foundation">Foundation</a></dd>
+                            <dd><a href="#" title="Musée_Atelier">Musée Atelier</a></dd>
+                        </dl>
+                        <dl>
+                            <dt>STORIES</dt>
+                            <dd><a href="#" title="all_news">All news</a></dd>
+                        </dl>
+                        <dl>
+                            <dt>SERVIES</dt>
+                            <dd><a href="#" title="all_services">All Services</a></dd>
+                            <dd><a href="#" title="caring_for_your_watch">Caring for your watch</a></dd>
+                            <dd><a href="#" title="where_to_service">Where to service</a></dd>
+                            <dd><a href="#" title="extend_your_warranty">Extend your Warranty</a></dd>
+                            <dd><a href="#" title="repair_pick_up">Repair pick up</a></dd>
+                        </dl>
+                        <dl>
+                            <dt>BOUTIQUES</dt>
+                            <dd><a href="#" title="find_a_boutique">Find a boutique</a></dd>
+                        </dl>
+                    </div>
+                    <div id="imgArea">
+                        <h4>
+                            LATEST<br />
+                            STORIES
+                        </h4>
+                        <ul>
+                            <li>
+                                <a href="#" title="The Lyonz Live from Montreux">
+                                    <span class="img">
+                                        <img src="img/allMenu/music.jpg" alt="The Lyonz Live from Montreux" />
+                                    </span>
+                                    <span class="text">The Lyonz Live from Montreux</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" title="Crack History’s Code">
+                                    <span class="img">
+                                        <img src="img/allMenu/atelier1.jpg" alt="Crack History’s Code" />
+                                    </span>
+                                    <span class="text"
+                                        >Musée Atelier Audemars Piguet : "Crack History’s Code" Masterclass</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" title="New Temporary Exhibition">
+                                    <span class="img">
+                                        <img src="img/allMenu/atelier2.jpg" alt="New Temporary Exhibition" />
+                                    </span>
+                                    <span class="text">Musee Atelier Audemars Piguet: New Temporary Exhibition</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" title="Ryoji Ikeda, Data-Verse Trilogy">
+                                    <span class="img">
+                                        <img src="img/allMenu/art.jpg" alt="Ryoji Ikeda, Data-Verse Trilogy" />
+                                    </span>
+                                    <span class="text">Ryoji Ikeda, Data-Verse Trilogy</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="footer">
+                <h3>footer</h3>
+            </div>
+        </div>
+    </body>
+</html>

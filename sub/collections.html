@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <title>Our Collections</title>
+        <meta charset="utf-8" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="../css/reset.css " />
+        <style>
+            /*############## wrap #################*/
+            #wrap {
+                min-width: 1025px;
+                width: 100%;
+            }
+
+            /*############## font-face ###############*/
+            @font-face {
+                font-family: "nor";
+                src: url("font/Kanit-Thin.woff");
+            }
+            @font-face {
+                font-family: "italic";
+                src: url("font/Amiri-Italic.woff");
+            }
+
+            /*################## headerWrap ###################*/
+            #headerWrap {
+                width: 100%;
+                height: 142px;
+                position: absolute;
+                z-index: 1;
+            }
+            #header {
+                width: 1703px;
+                height: 42px;
+                line-height: 42px;
+                padding: 50px 100px;
+            }
+
+            #navArea {
+                width: 715px;
+                height: 100%;
+                float: left;
+            }
+            #navArea .allMenu {
+                width: 30px;
+                height: 30px;
+                margin-top: 12px;
+                float: left;
+            }
+            #navArea .allMenu a {
+                display: block;
+                width: 100%;
+                height: 24px;
+            }
+            #navArea .allMenu a span {
+                text-indent: -9999px;
+                display: block;
+                width: 100%;
+                height: 3px;
+                background-color: #fff;
+                border-radius: 1px;
+                margin: 8px auto 0;
+            }
+            #navArea .gnb {
+                width: 685px;
+                height: 100%;
+                padding-top: 4px;
+                float: left;
+            }
+            #navArea .gnb li {
+                display: inline;
+                margin-left: 80px;
+                color: #fff;
+                cursor: pointer;
+            }
+
+            #logoArea {
+                width: 200px;
+                padding: 0 36px;
+                height: 100%;
+                float: left;
+            }
+            #logoArea a {
+                display: block;
+                width: 100%;
+            }
+            #logoArea a img {
+                width: 100%;
+            }
+            #mob_logo {
+                display: none;
+            }
+
+            #infoMenu {
+                width: 350px;
+                margin-left: 365px;
+                height: 100%;
+                float: left;
+            }
+            #infoMenu .servicesArea {
+                width: 240px;
+                height: 100%;
+                float: left;
+            }
+            #infoMenu .servicesArea li {
+                width: 110px;
+                height: 100%;
+                float: left;
+            }
+            #infoMenu .iconArea {
+                width: 110px;
+                height: 35px;
+                margin-top: 7px;
+                float: left;
+            }
+            #infoMenu .iconArea li {
+                width: 31px;
+                margin-right: 20px;
+                height: 100%;
+                overflow: hidden;
+                float: left;
+            }
+            #infoMenu .iconArea li a {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+            #infoMenu .iconArea .login img {
+                margin-left: 2px;
+                margin-top: 1px;
+            }
+            #infoMenu .iconArea .search img {
+                margin-left: -30px;
+            }
+
+            /*##### menuArea #####*/
+            #menuArea {
+                width: 100%;
+            }
+
+            /*### menu_inn ###*/
+            #menu_inn {
+                width: 300px;
+                padding-left: 203px;
+                float: left;
+            }
+
+            #menu_inn dl {
+                width: 100%;
+                padding: 20px 0;
+                line-height: 30px;
+            }
+            #menu_inn dt {
+                color: #c4c4c4;
+                font-size: 15px;
+                font-weight: 700;
+                line-height: 40px;
+            }
+            #menu_inn dd {
+                font-size: 14px;
+            }
+            #menu_inn dd a {
+                color: #000;
+            }
+            #menu_inn dd a:hover {
+                color: #c4c4c4;
+            }
+
+            /*### imgArea ###*/
+            #imgArea {
+                width: 1400px;
+                float: left;
+            }
+            #imgArea h4 {
+                font-size: 50px;
+                font-weight: 400;
+                font-family: "nor";
+                line-height: 50px;
+            }
+            #imgArea h4 i {
+                font-family: "italic";
+            }
+
+            #imgArea ul {
+                width: 100%;
+            }
+            #imgArea li {
+                width: 500px;
+                padding-right: 15px;
+                padding-bottom: 50px;
+                float: left;
+            }
+            #imgArea li a {
+                display: block;
+                width: 100%;
+                color: #333;
+            }
+            #imgArea li a .img {
+                display: block;
+                width: 100%;
+                overflow: hidden;
+            }
+            #imgArea li a .img img {
+                width: 100%;
+                transform: scale(1);
+                transition: transform 0.3s linear;
+            }
+            #imgArea li a .img:hover img {
+                transform: scale(1.1);
+            }
+            #imgArea li a .text {
+                display: block;
+                width: 100%;
+                padding-top: 10px;
+                font-size: 14px;
+                font-weight: 700;
+            }
+
+            #menuArea:after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+
+            /*##### watch_list #####*/
+            .watch_list {
+                width: 100%;
+                height: 700px; /*background-color:#333;*/
+            }
+            .watch_list .menu {
+                width: 300px;
+                height: 550px;
+                padding-top: 150px;
+                padding-left: 83px;
+                float: left;
+            }
+            .watch_list .menu p {
+                line-height: 40px;
+            }
+            .watch_list .menu p a {
+                font-size: 15px;
+                color: #000;
+            }
+
+            .watch_list .list {
+                width: 1520px;
+                height: 100%;
+                float: left;
+            }
+            .watch_list .list h4 {
+                font-size: 60px;
+                font-weight: 100;
+                color: #000;
+                padding: 30px 0;
+                font-family: "nor";
+            }
+            .watch_list .list h4 i {
+                font-family: "italic";
+            }
+            .watch_list .list .slideArea {
+                width: 100%;
+                position: relative;
+                overflow: hidden;
+            }
+            .watch_list .list ul {
+                width: 2160px;
+                height: 515px;
+            }
+            .watch_list .list li {
+                width: 350px;
+                height: 100%;
+                margin-right: 10px;
+                float: left;
+                position: relative;
+                background-image: url("img/head/watches/bg/bg0.png");
+            }
+            .watch_list .list li a {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+            .watch_list .list li a .img {
+                width: 250px;
+                position: absolute;
+                left: 50px;
+                top: 91px;
+            }
+            .watch_list .list li a .img img {
+                width: 100%;
+                transform: scale(1);
+                transition: transform 0.5s linear;
+            }
+            .watch_list .list li:hover .img img {
+                transform: scale(1.1);
+            }
+            .watch_list .list li a .textBx {
+                display: block;
+                width: 100%;
+                height: 150px;
+                text-align: center;
+                position: absolute;
+                left: 0;
+                bottom: 30px;
+            }
+            .watch_list .list li a .textBx .tx_img {
+                display: block;
+                width: 180px;
+                height: 110px;
+                padding: 0 85px;
+            }
+            .watch_list .list li a .textBx .tx_img img {
+                width: 100%;
+            }
+            .watch_list .list li a .textBx .text {
+                display: block;
+                width: 100%;
+                padding-top: 10px;
+                font-size: 15px;
+            }
+
+            .watch_list .list .watch1 {
+                background-image: url("img/head/watches/bg/bg1.png");
+            }
+            .watch_list .list .watch2 {
+                background-image: url("img/head/watches/bg/bg2.png");
+                background-position: right center;
+            }
+            .watch_list .list .watch3 {
+                background-image: url("img/head/watches/bg/bg3.png");
+                background-position: right center;
+            }
+            .watch_list .list .watch4 {
+                background-image: url("img/head/watches/bg/bg4.png");
+                background-position: right center;
+            }
+            .watch_list .list .watch5 {
+                background-image: url("img/head/watches/bg/bg5.png");
+                background-position: right center;
+            }
+
+            .watch_list .list .slideArea .btnArea p {
+                width: 39px;
+                height: 39px;
+                border: 1px solid #fff;
+                color: #fff;
+                text-align: center;
+                font-size: 25px;
+                border-radius: 20px;
+                cursor: pointer;
+                position: absolute;
+                top: 237px;
+            }
+            .watch_list .list .slideArea .btnArea .prevBtn {
+                left: 0;
+            }
+            .watch_list .list .slideArea .btnArea .nextBtn {
+                right: 0;
+            }
+
+            /*##### service_list #####*/
+            #service_list {
+                width: 100%;
+                height: 700px;
+                background-color: #fff;
+            }
+            #service_list .menu {
+                width: 300px;
+                height: 550px;
+                padding-top: 150px;
+                padding-left: 83px;
+                float: left;
+            }
+            #service_list .menu p {
+                line-height: 40px;
+            }
+            #service_list .menu p a {
+                font-size: 15px;
+                color: #000;
+            }
+
+            #service_list .list {
+                width: 1520px;
+                height: 100%;
+                float: left;
+            }
+            #service_list .list h4 {
+                font-size: 60px;
+                font-weight: 100;
+                color: #000;
+                padding: 30px 0;
+                font-family: "nor";
+            }
+            #service_list .list h4 i {
+                font-family: "italic";
+            }
+            #service_list .list .slideArea {
+                width: 100%;
+                position: relative;
+                overflow: hidden;
+            }
+            #service_list .list ul {
+                width: 1920px;
+                height: 310px;
+            }
+            #service_list .list li {
+                width: 470px;
+                margin-right: 10px;
+                float: left;
+            }
+            #service_list .list li a {
+                display: block;
+                width: 100%;
+                color: #000;
+            }
+            #service_list .list li a .img {
+                display: block;
+                width: 100%;
+            }
+            #service_list .list li a .img img {
+                width: 100%;
+            }
+            #service_list .list li a .text {
+                line-height: 30px;
+                font-size: 15px;
+            }
+
+            #service_list .list .slideArea .btnArea p {
+                width: 39px;
+                height: 39px;
+                border: 1px solid #fff;
+                text-align: center;
+                line-height: 36px;
+                font-size: 20px;
+                border-radius: 25px;
+                color: #fff;
+                background-color: rgba(0, 0, 0, 0.5);
+                position: absolute;
+                top: 118px;
+                cursor: pointer;
+            }
+            #service_list .list .slideArea .btnArea .prevBtn {
+                left: 0;
+            }
+            #service_list .list .slideArea .btnArea .nextBtn {
+                right: 0;
+            }
+
+            /*##### our_list #####*/
+            #our_list {
+                width: 100%;
+                height: 700px;
+                background-color: #fff;
+            }
+            #our_list .menu {
+                width: 300px;
+                height: 550px;
+                padding-top: 150px;
+                padding-left: 83px;
+                float: left;
+            }
+            #our_list .menu p {
+                line-height: 40px;
+            }
+            #our_list .menu p a {
+                font-size: 15px;
+                color: #000;
+            }
+
+            #our_list .list {
+                width: 1520px;
+                height: 100%;
+                float: left;
+            }
+            #our_list .list h4 {
+                font-size: 60px;
+                font-weight: 100;
+                color: #000;
+                padding: 30px 0;
+                font-family: "nor";
+            }
+            #our_list .list h4 i {
+                font-family: "italic";
+            }
+            #our_list .list .slideArea {
+                width: 100%;
+                position: relative;
+                overflow: hidden;
+            }
+            #our_list .list ul {
+                width: 2880px;
+                height: 310px;
+            }
+            #our_list .list li {
+                width: 470px;
+                margin-right: 10px;
+                float: left;
+            }
+            #our_list .list li a {
+                display: block;
+                width: 100%;
+                color: #000;
+            }
+            #our_list .list li a .img {
+                display: block;
+                width: 100%;
+            }
+            #our_list .list li a .img img {
+                width: 100%;
+            }
+            #our_list .list li a .text {
+                line-height: 30px;
+                font-size: 15px;
+            }
+
+            #our_list .list .slideArea .btnArea p {
+                width: 39px;
+                height: 39px;
+                border: 1px solid #fff;
+                text-align: center;
+                line-height: 36px;
+                font-size: 20px;
+                border-radius: 25px;
+                color: #fff;
+                background-color: rgba(0, 0, 0, 0.5);
+                position: absolute;
+                top: 118px;
+                cursor: pointer;
+            }
+            #our_list .list .slideArea .btnArea .prevBtn {
+                left: 0;
+            }
+            #our_list .list .slideArea .btnArea .nextBtn {
+                right: 0;
+            }
+
+            /*############## container #################*/
+            #container {
+                width: 100%;
+                background-color: #000;
+                padding-top: 142px;
+            }
+
+            #collectionArea {
+                width: 100%;
+            }
+            #collectionArea h3 {
+                padding: 50px 0 50px 100px;
+                color: #fff;
+                font-size: 55px;
+                font-weight: 100;
+                font-family: "nor";
+                line-height: 50px;
+            }
+            #collectionArea h3 i {
+                font-family: "italic";
+                font-size: 60px;
+            }
+
+            /*##### topArea #####*/
+            #collectionArea .topArea {
+                width: 100%;
+            }
+            #collectionArea .topArea li {
+                width: 1703px;
+                padding: 0 100px 100px;
+                position: relative;
+            }
+
+            #collectionArea .topArea li .imgArea {
+                width: 100%;
+            }
+            #collectionArea .topArea li .imgArea img {
+                width: 100%;
+            }
+
+            #collectionArea .topArea li .textArea {
+                width: 350px;
+                color: #fff;
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+            #collectionArea .topArea .collect0 .textArea {
+                right: 320px;
+                top: 160px;
+            }
+            #collectionArea .topArea .collect1 .textArea {
+                left: 250px;
+                top: 260px;
+            }
+            #collectionArea .topArea .collect2 .textArea {
+                right: 320px;
+                top: 240px;
+            }
+            #collectionArea .topArea .collect3 .textArea {
+                left: 250px;
+                top: 300px;
+            }
+            #collectionArea .topArea .collect4 .textArea {
+                left: 250px;
+                top: 400px;
+            }
+            #collectionArea .topArea .collect5 .textArea {
+                right: 320px;
+                top: 400px;
+            }
+
+            #collectionArea .topArea li .textArea .title {
+                font-size: 55px;
+                font-family: "nor";
+                line-height: 50px;
+            }
+            #collectionArea .topArea li .textArea .title i {
+                font-family: "italic";
+                font-size: 60px;
+            }
+            #collectionArea .topArea li .textArea .desc {
+                font-size: 17px;
+                padding: 50px 0 30px;
+            }
+
+            #collectionArea .topArea li .textArea .view {
+                width: 165px;
+            }
+            #collectionArea .topArea li .textArea .view a {
+                display: block;
+                width: 100%;
+                text-align: right;
+            }
+            #collectionArea .topArea li .textArea .view a:before {
+                content: "";
+                display: inline-block;
+                width: 45px;
+                height: 1px;
+                background-color: #fff;
+                margin-bottom: 5px;
+                transition: width 0.3s linear;
+            }
+            #collectionArea .topArea li .textArea .view:hover a:before {
+                width: 10px;
+            }
+
+            /*##### bottomArea #####*/
+            #collectionArea .bottomArea {
+                width: 1703px;
+                padding: 0 100px;
+                height: 960px;
+            }
+            #collectionArea .bottomArea li {
+                width: 565px;
+                margin-left: 4px;
+                color: #fff;
+                float: left;
+                position: relative;
+            }
+            #collectionArea .bottomArea li:first-child {
+                margin-left: 0;
+            }
+
+            #collectionArea .bottomArea li .imgArea {
+                width: 100%;
+            }
+            #collectionArea .bottomArea li .imgArea img {
+                width: 100%;
+            }
+
+            #collectionArea .bottomArea .textArea {
+                width: 400px;
+                position: absolute;
+                left: 50px;
+                bottom: 250px;
+            }
+            #collectionArea .bottomArea .textArea .title {
+                font-size: 55px;
+                font-family: "nor";
+            }
+            #collectionArea .bottomArea .textArea .desc {
+                padding: 30px 0 20px;
+            }
+
+            #collectionArea .bottomArea li .textArea .view {
+                width: 165px;
+            }
+            #collectionArea .bottomArea li .textArea .view a {
+                display: block;
+                width: 100%;
+                text-align: right;
+            }
+            #collectionArea .bottomArea li .textArea .view a:before {
+                content: "";
+                display: inline-block;
+                width: 45px;
+                height: 1px;
+                background-color: #fff;
+                margin-bottom: 5px;
+                transition: width 0.3s linear;
+            }
+            #collectionArea .bottomArea li .textArea .view:hover a:before {
+                width: 10px;
+            }
+
+            /*################## footerWrap ###################*/
+            #footerWrap {
+                width: 100%;
+                height: 500px;
+                background-color: #02291f;
+            }
+            #footer {
+                width: 1703px;
+                height: 350px;
+                padding: 100px 100px 50px;
+            }
+
+            #footer .footer_top {
+                width: 100%;
+                height: 250px;
+            }
+            #footer .footer_top .lang {
+                width: 503px;
+                height: 100%;
+                float: left;
+            }
+            #footer .footer_top .lang a {
+                display: block;
+                width: 250px;
+                font-size: 15px;
+            }
+            #footer .footer_top .lang a .icon {
+                display: block;
+                width: 24px;
+                margin-right: 20px;
+                height: 24px;
+                float: left;
+            }
+            #footer .footer_top .lang a .icon img {
+                width: 100%;
+            }
+            #footer .footer_top .lang a .text {
+                display: block;
+                width: 200px;
+                line-height: 24px;
+                float: left;
+            }
+
+            #footer .footer_top .footerNav {
+                width: 1200px;
+                height: 100%;
+                float: left;
+            }
+            #footer .footer_top .footerNav dl {
+                width: 300px;
+                height: 100%;
+                float: left;
+            }
+            #footer .footer_top .footerNav dt {
+                height: 50px;
+                color: #fff;
+                font-weight: 700;
+            }
+            #footer .footer_top .footerNav dd {
+                height: 35px;
+                font-size: 15px;
+            }
+            #footer .footer_top .footerNav dd a:hover {
+                color: #8fa09c;
+            }
+
+            #footer .footer_bottom {
+                width: 100%;
+                height: 30px;
+                padding: 35px 0;
+            }
+            #footer .footer_bottom .iconArea {
+                width: 503px;
+                height: 100%;
+                float: left;
+            }
+            #footer .footer_bottom .iconArea ul {
+                width: 280px;
+                padding-right: 403px;
+                height: 100%;
+            }
+            #footer .footer_bottom .iconArea li {
+                width: 30px;
+                margin-right: 20px;
+                height: 30px;
+                overflow: hidden;
+                float: left;
+            }
+            #footer .footer_bottom .iconArea li a {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+            #footer .footer_bottom .iconArea .face a img {
+                margin-left: -45px;
+                margin-top: -5px;
+            }
+            #footer .footer_bottom .iconArea .insta a img {
+                margin-left: -7px;
+                margin-top: -5px;
+            }
+            #footer .footer_bottom .iconArea .twi a img {
+                margin-left: -5px;
+                margin-top: -81px;
+            }
+            #footer .footer_bottom .iconArea .yout a img {
+                margin-left: -84px;
+                margin-top: -6px;
+            }
+
+            #footer .footer_bottom .legalArea {
+                width: 900px;
+                height: 100%;
+                float: left;
+            }
+            #footer .footer_bottom .legalArea ul {
+                width: 100%;
+            }
+            #footer .footer_bottom .legalArea li {
+                display: inline;
+                font-size: 14px;
+                padding-right: 60px;
+            }
+            #footer .footer_bottom .legalArea li a:hover {
+                color: #8fa09c;
+            }
+
+            #footer .footer_bottom .copyArea {
+                width: 300px;
+                height: 100%;
+                color: #fff;
+                float: left;
+            }
+
+            #mob_footerWrap {
+                display: none;
+            }
+
+            /*########## 버리는 영역 ##########*/
+            h2 {
+                position: absolute;
+                left: -9999px;
+                width: 1px;
+                height: 1px;
+                font-size: 1px;
+                line-height: 0;
+                overflow: hidden;
+            }
+        </style>
+        <script>
+            $(document).ready(function () {
+                /*더블클릭되는 변수*/
+                let clickD = true;
+
+                /*스크롤 내릴 때 fixed 되도록*/
+                $(window).scroll(function () {
+                    $(window).scroll(function () {
+                        var nowScorll = $(document).scrollTop();
+                        console.log(nowScorll);
+
+                        $(document).scrollTop();
+
+                        if (nowScorll > 0) {
+                            $("#headerWrap").css({ position: "fixed", left: "0", top: "0", backgroundColor: "#fff" });
+                            $("#logoArea a img").attr("src", "img/logoB.svg");
+                            $("#navArea .allMenu a span").css({ backgroundColor: "#000" });
+                            $("#navArea .gnb li, #navArea .gnb li a, #infoMenu .servicesArea li a").css({
+                                color: "#000",
+                            });
+                            $("#infoMenu .iconArea .login img").css({ marginLeft: "-64px" });
+                            $("#infoMenu .iconArea .search img").css({ marginLeft: "-95px" });
+                        } else {
+                            $("#headerWrap").css({
+                                position: "absolute",
+                                left: "0",
+                                top: "0",
+                                backgroundColor: "rgba(0,0,0,0)",
+                            });
+                            $("#logoArea a img").attr("src", "img/logo.svg");
+                            $("#navArea .allMenu a span").css({ backgroundColor: "#fff" });
+                            $("#navArea .gnb li, #navArea .gnb li a, #infoMenu .servicesArea li a").css({
+                                color: "#fff",
+                            });
+                            $("#infoMenu .iconArea .login img").css({ marginLeft: "2px", marginTop: "1px" });
+                            $("#infoMenu .iconArea .search img").css({ marginLeft: "-30px" });
+                        }
+                    });
+                });
+
+                /*hearder 색상, 로고 변경*/
+                $("#navArea .allMenu, #navArea .gnb li:not(:last), #infoMenu .servicesArea .service").click(
+                    function () {
+                        if (clickD == true) {
+                            $("#headerWrap").css({ height: "1100px", backgroundColor: "#fff" });
+                            $("#logoArea a img").attr("src", "img/logoB.svg");
+                            $("#navArea .allMenu a span").css({ backgroundColor: "#000" });
+                            $("#navArea .gnb li, #navArea .gnb li a, #infoMenu .servicesArea li a").css({
+                                color: "#000",
+                            });
+                            $("#infoMenu .iconArea .login img").css({ marginLeft: "-64px" });
+                            $("#infoMenu .iconArea .search img").css({ marginLeft: "-95px" });
+                        } else {
+                            $("#headerWrap").css({ height: "142px", backgroundColor: "rgba(0,0,0,0)" });
+                            $("#logoArea a img").attr("src", "img/logo.svg");
+                            $("#navArea .allMenu a span").css({ backgroundColor: "#fff" });
+                            $("#navArea .gnb li, #navArea .gnb li a, #infoMenu .servicesArea li a").css({
+                                color: "#fff",
+                            });
+                            $("#infoMenu .iconArea .login img").css({ marginLeft: "2px", marginTop: "1px" });
+                            $("#infoMenu .iconArea .search img").css({ marginLeft: "-30px" });
+                        }
+                    }
+                );
+
+                /*header / menuArea*/
+                $("#menuArea").hide();
+
+                $(".allMenu").click(function () {
+                    if (clickD == true) {
+                        $("#menuArea").show();
+                        clickD = false;
+                    } else {
+                        $("#menuArea").hide();
+                        clickD = true;
+                    }
+                });
+
+                /*header / watch_list*/
+                $(".watch_list").hide();
+
+                $("#navArea .gnb .watches").click(function () {
+                    if (clickD == true) {
+                        $(".watch_list").show();
+                        clickD = false;
+                    } else {
+                        $(".watch_list").hide();
+                        clickD = true;
+                    }
+                });
+
+                $(".watch_list .list .slideArea .btnArea .nextBtn").click(function () {
+                    $(".watch_list .list .slideArea ul").animate({ marginLeft: "-=360px" }, 500, "linear");
+                });
+
+                $(".watch_list .list .slideArea .btnArea .prevBtn").click(function () {
+                    $(".watch_list .list .slideArea ul").animate({ marginLeft: "+=360px" }, 500, "linear");
+                });
+
+                /*header / our_list*/
+                $("#our_list").hide();
+
+                $("#navArea .gnb .world").click(function () {
+                    if (clickD == true) {
+                        $("#our_list").show();
+                        clickD = false;
+                    } else {
+                        $("#our_list").hide();
+                        clickD = true;
+                    }
+                });
+
+                $("#our_list .list .btnArea .nextBtn").click(function () {
+                    $("#our_list .list .slideArea ul").animate({ marginLeft: "-=480px" }, 500, "linear");
+                });
+                $("#our_list .list .btnArea .prevBtn").click(function () {
+                    $("#our_list .list .slideArea ul").animate({ marginLeft: "+=480px" }, 500, "linear");
+                });
+
+                /*header / service_list*/
+                $("#service_list").hide();
+
+                $("#infoMenu .servicesArea li:first").click(function () {
+                    if (clickD == true) {
+                        $("#service_list").show();
+                        clickD = false;
+                    } else {
+                        $("#service_list").hide();
+                        clickD = true;
+                    }
+                });
+
+                $("#service_list .list .btnArea .nextBtn").click(function () {
+                    $("#service_list .list .slideArea ul").animate({ marginLeft: "-480px" }, 500, "linear");
+                });
+                $("#service_list .list .btnArea .prevBtn").click(function () {
+                    $("#service_list .list .slideArea ul").animate({ marginLeft: "0" }, 500, "linear");
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="wrap">
+            <div id="headerWrap">
+                <header id="header">
+                    <div id="navArea">
+                        <div class="allMenu">
+                            <a href="#" title="전체메뉴">
+                                <span>─</span>
+                                <span>─</span>
+                            </a>
+                        </div>
+                        <nav class="gnb">
+                            <h2>네비게이션 영역</h2>
+                            <ul>
+                                <li class="watches">Watches</li>
+                                <li class="world">Our World</li>
+                                <li><a href="sub/stories.html" title="stories">Stories</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div id="logoArea">
+                        <a href="../index.html" title="오데마피게사이트">
+                            <img src="img/logo.svg" alt="오데마피게_로고" />
+                        </a>
+                    </div>
+                    <div id="mob_logo">
+                        <a href="../index.html" title="오데마피게사이트">
+                            <img src="img/logo_mini.svg" alt="오데마피게_로고" />
+                        </a>
+                    </div>
+                    <div id="infoMenu">
+                        <ul class="servicesArea">
+                            <li class="service"><a href="#" title="services">Services</a></li>
+                            <li><a href="#" title="boutiques">Boutiques</a></li>
+                        </ul>
+                        <ul class="iconArea">
+                            <li class="login">
+                                <a href="#" title="login">
+                                    <img src="img/icon22.png" alt="로그인아이콘" />
+                                </a>
+                            </li>
+                            <li class="search">
+                                <a href="sub/all_watches.html" title="search">
+                                    <img src="img/icon22.png" alt="돋보기아이콘" />
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </header>
+                <div id="menuArea">
+                    <div id="menu_inn">
+                        <dl>
+                            <dt>WATCHES</dt>
+                            <dd><a href="#" title="all_watches">All Watches</a></dd>
+                            <dd><a href="#" title="our_collections">Our Collections</a></dd>
+                            <dd><a href="#" title="new_releases">New Releases</a></dd>
+                        </dl>
+                        <dl>
+                            <dt>OUR WORLD</dt>
+                            <dd><a href="#" title="born_in_le_brassus">Born in Le Brassus</a></dd>
+                            <dd><a href="#" title="savoir_faire">Savoir-Faire</a></dd>
+                            <dd><a href="#" title="art">AP x Art</a></dd>
+                            <dd><a href="#" title="golf">AP x Golf</a></dd>
+                            <dd><a href="#" title="music">AP x Music</a></dd>
+                            <dd><a href="#" title="foundation">Foundation</a></dd>
+                            <dd><a href="#" title="Musée_Atelier">Musée Atelier</a></dd>
+                        </dl>
+                        <dl>
+                            <dt>STORIES</dt>
+                            <dd><a href="#" title="all_news">All news</a></dd>
+                        </dl>
+                        <dl>
+                            <dt>SERVIES</dt>
+                            <dd><a href="#" title="all_services">All Services</a></dd>
+                            <dd><a href="#" title="caring_for_your_watch">Caring for your watch</a></dd>
+                            <dd><a href="#" title="where_to_service">Where to service</a></dd>
+                            <dd><a href="#" title="extend_your_warranty">Extend your Warranty</a></dd>
+                            <dd><a href="#" title="repair_pick_up">Repair pick up</a></dd>
+                        </dl>
+                        <dl>
+                            <dt>BOUTIQUES</dt>
+                            <dd><a href="#" title="find_a_boutique">Find a boutique</a></dd>
+                        </dl>
+                    </div>
+                    <div id="imgArea">
+                        <h4>
+                            LATEST<br />
+                            <i>STORIES</i>
+                        </h4>
+                        <ul>
+                            <li>
+                                <a href="#" title="The Lyonz Live from Montreux">
+                                    <span class="img">
+                                        <img src="img/allMenu/music.jpg" alt="The Lyonz Live from Montreux" />
+                                    </span>
+                                    <span class="text">The Lyonz Live from Montreux</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" title="Crack History’s Code">
+                                    <span class="img">
+                                        <img src="img/allMenu/atelier1.jpg" alt="Crack History’s Code" />
+                                    </span>
+                                    <span class="text"
+                                        >Musée Atelier Audemars Piguet : "Crack History’s Code" Masterclass</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" title="New Temporary Exhibition">
+                                    <span class="img">
+                                        <img src="img/allMenu/atelier2.jpg" alt="New Temporary Exhibition" />
+                                    </span>
+                                    <span class="text">Musee Atelier Audemars Piguet: New Temporary Exhibition</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" title="Ryoji Ikeda, Data-Verse Trilogy">
+                                    <span class="img">
+                                        <img src="img/allMenu/art.jpg" alt="Ryoji Ikeda, Data-Verse Trilogy" />
+                                    </span>
+                                    <span class="text">Ryoji Ikeda, Data-Verse Trilogy</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="watch_list">
+                    <div class="menu">
+                        <p><a href="#" title="all_watches">All Watches</a></p>
+                        <p><a href="#" title="our_collections">Our Collections</a></p>
+                        <p><a href="#" title="new_releases">New Releses</a></p>
+                    </div>
+                    <div class="list">
+                        <h4>OUR <i>COLLECTIONS</i></h4>
+                        <div class="slideArea">
+                            <ul>
+                                <li class="watch0">
+                                    <a href="#" title="CODE 11.59 컬렉션 링크">
+                                        <span class="img">
+                                            <img src="img/head/watches/watch/watch0.png" alt="시계이미지0" />
+                                        </span>
+                                        <span class="textBx">
+                                            <span class="tx_img">
+                                                <img src="img/head/watches/watch/text0.png" alt="컬렉션제목" />
+                                            </span>
+                                            <span class="text">View collection</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="watch1">
+                                    <a href="#" title="royal oak 컬렉션 링크">
+                                        <span class="img">
+                                            <img src="img/head/watches/watch/watch1.png" alt="시계이미지1" />
+                                        </span>
+                                        <span class="textBx">
+                                            <span class="tx_img">
+                                                <img src="img/head/watches/watch/text1.png" alt="컬렉션제목" />
+                                            </span>
+                                            <span class="text">View collection</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="watch2">
+                                    <a href="#" title="royal oak offshore 컬렉션 링크">
+                                        <span class="img">
+                                            <img src="img/head/watches/watch/watch2.png" alt="시계이미지2" />
+                                        </span>
+                                        <span class="textBx">
+                                            <span class="tx_img">
+                                                <img src="img/head/watches/watch/text2.png" alt="컬렉션제목" />
+                                            </span>
+                                            <span class="text">View collection</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="watch3">
+                                    <a href="#" title="royal oak concept 컬렉션 링크">
+                                        <span class="img">
+                                            <img src="img/head/watches/watch/watch3.png" alt="시계이미지3" />
+                                        </span>
+                                        <span class="textBx">
+                                            <span class="tx_img">
+                                                <img src="img/head/watches/watch/text3.png" alt="컬렉션제목" />
+                                            </span>
+                                            <span class="text">View collection</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="watch4">
+                                    <a href="#" title="RE MASTER 01 컬렉션 링크">
+                                        <span class="img">
+                                            <img src="img/head/watches/watch/watch4.png" alt="시계이미지4" />
+                                        </span>
+                                        <span class="textBx">
+                                            <span class="tx_img">
+                                                <img src="img/head/watches/watch/text4.png" alt="컬렉션제목" />
+                                            </span>
+                                            <span class="text">View collection</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="watch5">
+                                    <a href="#" title="MILLENARY 컬렉션 링크">
+                                        <span class="img">
+                                            <img src="img/head/watches/watch/watch5.png" alt="시계이미지5" />
+                                        </span>
+                                        <span class="textBx">
+                                            <span class="tx_img">
+                                                <img src="img/head/watches/watch/text5.png" alt="컬렉션제목" />
+                                            </span>
+                                            <span class="text">View collection</span>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="btnArea">
+                                <p class="prevBtn">&lt;</p>
+                                <p class="nextBtn">&gt;</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="our_list">
+                    <div class="menu">
+                        <p><a href="#" title="born_in_le_brassus">Born in Le Brassus</a></p>
+                        <p><a href="#" title="Savior_Faire">Savior-Faire</a></p>
+                        <p><a href="#" title="ap_art">AP X ART</a></p>
+                        <p><a href="#" title="ap_golf">AP X GOLF</a></p>
+                        <p><a href="#" title="ap_music">AP X MUSIC</a></p>
+                        <p><a href="#" title="foundation">Foundation</a></p>
+                    </div>
+                    <div class="list">
+                        <h4>WHO WE <i>ARE</i></h4>
+                        <div class="slideArea">
+                            <ul>
+                                <li>
+                                    <a href="#" title="Born in Le Brassus">
+                                        <span class="img">
+                                            <img src="img/head/world/brassus.jpg" alt="Born in Le Brassus" />
+                                        </span>
+                                        <span class="text">Born in Le Brassus</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="Savior_Faire">
+                                        <span class="img">
+                                            <img src="img/head/world/Savoir_Faire.jpg" alt="Savior_Faire" />
+                                        </span>
+                                        <span class="text">Savior-Faire</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="art">
+                                        <span class="img">
+                                            <img src="img/head/world/art.jpg" alt="ap_art" />
+                                        </span>
+                                        <span class="text">AP &amp; Art</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="golf">
+                                        <span class="img">
+                                            <img src="img/head/world/golf.jpg" alt="ap_golf" />
+                                        </span>
+                                        <span class="text">AP &amp; Golf</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="music">
+                                        <span class="img">
+                                            <img src="img/head/world/music.jpg" alt="ap_music" />
+                                        </span>
+                                        <span class="text">AP &amp; Music</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="foundation">
+                                        <span class="img">
+                                            <img src="img/head/world/foundation.jpg" alt="foundation" />
+                                        </span>
+                                        <span class="text">Foundation</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="btnArea">
+                                <p class="prevBtn">&lt;</p>
+                                <p class="nextBtn">&gt;</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="service_list">
+                    <div class="menu">
+                        <p><a href="#" title="all_services">All Services</a></p>
+                        <p><a href="#" title="caring_for_your_watch">Caring for your watch</a></p>
+                        <p><a href="#" title="where_to_service">Where to service</a></p>
+                        <p><a href="#" title="extend_your_warranty">Extend your Warranty</a></p>
+                        <p><a href="#" title="repair_pick_up">Repair pick up</a></p>
+                    </div>
+                    <div class="list">
+                        <h4>OUR <i>SERVICES</i></h4>
+                        <div class="slideArea">
+                            <ul>
+                                <li>
+                                    <a href="#" title="all services">
+                                        <span class="img">
+                                            <img src="img/head/services/all.jpg" alt="서비스이미지0" />
+                                        </span>
+                                        <span class="text">All Services</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="caring for your watch">
+                                        <span class="img">
+                                            <img src="img/head/services/caring.jpg" alt="서비스이미지1" />
+                                        </span>
+                                        <span class="text">Caring for your watch</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="after sales network">
+                                        <span class="img">
+                                            <img src="img/head/services/after_sales.jpg" alt="서비스이미지2" />
+                                        </span>
+                                        <span class="text">After Sales Network</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="terms n conditions">
+                                        <span class="img">
+                                            <img src="img/head/services/condition.jpg" alt="서비스이미지3" />
+                                        </span>
+                                        <span class="text">Terms &amp; Conditions</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="btnArea">
+                                <p class="prevBtn">&lt;</p>
+                                <p class="nextBtn">&gt;</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="container">
+                <div id="collectionArea">
+                    <h3>
+                        OUR<br />
+                        <i>COLLECTIONS</i>
+                    </h3>
+                    <ul class="topArea">
+                        <li class="collect0">
+                            <p class="imgArea">
+                                <img src="img/collections/collect0.jpg" alt="CODE 11.59 컬렉션 시계이미지" />
+                            </p>
+                            <div class="textArea">
+                                <p class="title">
+                                    CODE<br />
+                                    11.59 BY
+                                    <i>AUDEMARS PIGUET</i>
+                                </p>
+                                <p class="desc">
+                                    Classic by nature,<br />
+                                    unconventional by design.
+                                </p>
+                                <p class="view">
+                                    <a href="#" title="CODE 11.59 컬렉션 링크"> View Collection</a>
+                                </p>
+                            </div>
+                        </li>
+                        <li class="collect1">
+                            <p class="imgArea">
+                                <img src="img/collections/collect1.jpg" alt="ROYAL OAK 컬렉션 시계이미지" />
+                            </p>
+                            <div class="textArea">
+                                <p class="title">ROYAL OAK</p>
+                                <p class="desc">From avant-garde to icon.</p>
+                                <p class="view">
+                                    <a href="#" title="ROYAL OAK 컬렉션 링크"> View Collection</a>
+                                </p>
+                            </div>
+                        </li>
+                        <li class="collect2">
+                            <p class="imgArea">
+                                <img src="img/collections/collect2.jpg" alt="ROYAL OAK OFFSHORE 컬렉션 시계이미지" />
+                            </p>
+                            <div class="textArea">
+                                <p class="title">
+                                    ROYAL OAK<br />
+                                    <i>OFFSHORE</i>
+                                </p>
+                                <p class="desc">A daring and sportier take on the Royal Oak.</p>
+                                <p class="view">
+                                    <a href="#" title="ROYAL OAK OFFSHORE 컬렉션 링크"> View Collection</a>
+                                </p>
+                            </div>
+                        </li>
+                        <li class="collect3">
+                            <p class="imgArea">
+                                <img src="img/collections/collect3.jpg" alt="ROYAL OAK CONCEPT 컬렉션 시계이미지" />
+                            </p>
+                            <div class="textArea">
+                                <p class="title">
+                                    ROYAL OAK<br />
+                                    <i>CONCEPT</i>
+                                </p>
+                                <p class="desc">A high-tech approach to Haute Horlogerie.</p>
+                                <p class="view">
+                                    <a href="#" title="ROYAL OAK CONCEPT 컬렉션 링크"> View Collection</a>
+                                </p>
+                            </div>
+                        </li>
+                        <li class="collect4">
+                            <p class="imgArea">
+                                <img src="img/collections/collect4.jpg" alt="RE MASTER 01 컬렉션 시계이미지" />
+                            </p>
+                            <div class="textArea">
+                                <p class="title">[RE]MASTER01</p>
+                                <p class="desc">1943 aesthetics, 2020 technology.</p>
+                                <p class="view">
+                                    <a href="#" title="RE MASTER 01 컬렉션 링크"> View Collection</a>
+                                </p>
+                            </div>
+                        </li>
+                        <li class="collect5">
+                            <p class="imgArea">
+                                <img src="img/collections/collect5.jpg" alt="MILLENARY 컬렉션 시계이미지" />
+                            </p>
+                            <div class="textArea">
+                                <p class="title">MILLENARY</p>
+                                <p class="desc">Multi-layered architecture built from the inside out.</p>
+                                <p class="view">
+                                    <a href="#" title="MILLENARY 컬렉션 링크"> View Collection</a>
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="bottomArea">
+                        <li>
+                            <p class="imgArea">
+                                <img src="img/collections/collect6.jpg" alt="JULES AUDEMARS 컬렉션 시계이미지" />
+                            </p>
+                            <div class="textArea">
+                                <p class="title">JULES AUDEMARS</p>
+                                <p class="desc">When elegance meets excellence.</p>
+                                <p class="view">
+                                    <a href="#" title="JULES AUDEMARS 컬렉션 링크"> View Collection</a>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <p class="imgArea">
+                                <img src="img/collections/collect7.jpg" alt="HAUTE JOAILLERIE 컬렉션 시계이미지" />
+                            </p>
+                            <div class="textArea">
+                                <p class="title">HAUTE JOAILLERIE</p>
+                                <p class="desc">Disrupting the tradition of gem-set watches.</p>
+                                <p class="view">
+                                    <a href="#" title="HAUTE JOAILLERIE 컬렉션 링크"> View Collection</a>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <p class="imgArea">
+                                <img src="img/collections/collect8.jpg" alt="CLASSIQUE 컬렉션 시계이미지" />
+                            </p>
+                            <div class="textArea">
+                                <p class="title">CLASSIQUE</p>
+                                <p class="desc">Where the past shapes the future.</p>
+                                <p class="view">
+                                    <a href="#" title="CLASSIQUE 컬렉션 링크"> View Collection</a>
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="footerWrap">
+                <footer id="footer">
+                    <div class="footer_top">
+                        <div class="lang">
+                            <a href="#" title="Change language / currency">
+                                <i class="icon">
+                                    <img src="img/lang_icon.png" alt="지구본_아이콘" />
+                                </i>
+                                <span class="text">Change language / currency</span>
+                            </a>
+                        </div>
+                        <div class="footerNav">
+                            <dl>
+                                <dt>WATCHES</dt>
+                                <dd><a href="#" title="All_Watches">All Watches</a></dd>
+                                <dd><a href="#" title="Our_Collections">Our Collections</a></dd>
+                                <dd><a href="#" title="New_Releases">New Releases</a></dd>
+                                <dd><a href="#" title="Find_a_Boutique">Find a Boutique</a></dd>
+                            </dl>
+                            <dl>
+                                <dt>OUR WORLD</dt>
+                                <dd><a href="#" title="Born_in_Le_Brassus">Born in Le Brassus</a></dd>
+                                <dd><a href="#" title="Savoir-Faire">Savoir-Faire</a></dd>
+                                <dd><a href="#" title="Stories">Stories</a></dd>
+                                <dd><a href="#" title="Stay_connected">Stay connected</a></dd>
+                            </dl>
+                            <dl>
+                                <dt>SERVICES</dt>
+                                <dd><a href="#" title="All_services">All services</a></dd>
+                                <dd><a href="#" title="Extend_your_warranty">Extend your warranty</a></dd>
+                                <dd><a href="#" title="Contact us">Contact_us</a></dd>
+                                <dd><a href="#" title="FAQ">FAQ</a></dd>
+                            </dl>
+                            <dl>
+                                <dt>COMPANY</dt>
+                                <dd><a href="#" title="Careers">Careers</a></dd>
+                                <dd><a href="#" title="Press">Press</a></dd>
+                                <dd><a href="#" title="Musée Atelier">Musée Atelier</a></dd>
+                                <dd><a href="#" title="Foundation">Foundation</a></dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="footer_bottom">
+                        <div class="iconArea">
+                            <ul>
+                                <li class="face">
+                                    <a href="#" title="facebook_link">
+                                        <img src="img/removebg_preview.png" alt="페이스북_아이콘" />
+                                    </a>
+                                </li>
+                                <li class="insta">
+                                    <a href="#" title="instagram_link">
+                                        <img src="img/removebg_preview.png" alt="인스타그램_아이콘" />
+                                    </a>
+                                </li>
+                                <li class="twi">
+                                    <a href="#" title="twitter_link">
+                                        <img src="img/removebg_preview.png" alt="트위터_아이콘" />
+                                    </a>
+                                </li>
+                                <li class="yout">
+                                    <a href="#" title="youtube_link">
+                                        <img src="img/removebg_preview.png" alt="유튜브_아이콘" />
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="legalArea">
+                            <ul>
+                                <li><a href="#" title="Terms_of_Use">Terms of Use</a></li>
+                                <li><a href="#" title="Privacy_Notice">Privacy Notice</a></li>
+                                <li><a href="#" title="Cookie_Policy">Cookie Policy</a></li>
+                                <li><a href="#" title="Accessibility ">Accessibility </a></li>
+                            </ul>
+                        </div>
+                        <div class="copyArea">&copy; 2021 Audemars Piguet</div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,3705 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <title>Audemars Piguet</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <script defer src="./js/jQuery.js"></script>
+        <script src="./js/javascript.js"></script>
+        <link rel="stylesheet" href="./css/reset.css" />
+        <link rel="stylesheet" href="./css/common.css" />
+        <!-- <link rel="stylesheet" href="./css/style.css" /> -->
+        <style>
+            /*################## skipNav ###################*/
+            #skipNav,
+            #skipNav p {
+                width: 100%;
+            }
+            #skipNav {
+                position: absolute;
+                left: 0;
+                top: -30px;
+            }
+            #skipNav p a {
+                display: block;
+                width: 100%;
+                line-height: 30px;
+                text-align: center;
+                background-color: #000;
+                color: #fff;
+                position: absolute;
+            }
+
+            #skipNav p a:focus {
+                top: 30px;
+                color: #00a;
+                background-color: #fff;
+                z-index: 1;
+            }
+
+            /*################## headerWrap ###################*/
+            #headerWrap {
+                width: 100%;
+                height: 142px;
+                position: absolute;
+                z-index: 1;
+            }
+            #header {
+                width: 1703px;
+                height: 42px;
+                line-height: 42px;
+                padding: 50px 100px;
+                display: flex;
+            }
+
+            #navArea {
+                width: 715px;
+                height: 100%;
+                display: flex;
+            }
+            #navArea .allMenu {
+                width: 30px;
+                height: 30px;
+                margin-top: 12px;
+            }
+            #navArea .allMenu a {
+                display: block;
+                width: 100%;
+                height: 24px;
+            }
+            #navArea .allMenu a span {
+                text-indent: -9999px;
+                display: block;
+                width: 100%;
+                height: 3px;
+                background-color: #fff;
+                border-radius: 1px;
+                margin: 8px auto 0;
+            }
+            #navArea .gnb {
+                width: 685px;
+                height: 100%;
+                padding-top: 4px;
+            }
+            #navArea .gnb li {
+                display: inline;
+                margin-left: 80px;
+                color: #fff;
+                cursor: pointer;
+            }
+
+            #logoArea {
+                width: 200px;
+                padding: 0 36px;
+                height: 100%;
+            }
+            #logoArea a {
+                display: block;
+                width: 100%;
+            }
+            #logoArea a img {
+                width: 100%;
+            }
+            #mob_logo {
+                display: none;
+            }
+
+            #infoMenu {
+                width: 350px;
+                margin-left: 365px;
+                height: 100%;
+                display: flex;
+            }
+            #infoMenu .servicesArea {
+                width: 240px;
+                height: 100%;
+                display: flex;
+            }
+            #infoMenu .servicesArea li {
+                width: 110px;
+                height: 100%;
+            }
+            #infoMenu .iconArea {
+                width: 110px;
+                height: 35px;
+                margin-top: 7px;
+                display: flex;
+            }
+            #infoMenu .iconArea li {
+                width: 31px;
+                margin-right: 20px;
+                height: 100%;
+                overflow: hidden;
+            }
+            #infoMenu .iconArea li a {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+            #infoMenu .iconArea .login img {
+                margin-left: 2px;
+                margin-top: 1px;
+            }
+            #infoMenu .iconArea .search img {
+                margin-left: -30px;
+            }
+
+            /*##### menuArea #####*/
+            #menuArea {
+                width: 100%;
+            }
+
+            /*### menu_inn ###*/
+            #menu_inn {
+                width: 300px;
+                padding-left: 203px;
+                float: left;
+            }
+
+            #menu_inn dl {
+                width: 100%;
+                padding: 20px 0;
+                line-height: 30px;
+            }
+            #menu_inn dt {
+                color: #c4c4c4;
+                font-size: 15px;
+                font-weight: 700;
+                line-height: 40px;
+            }
+            #menu_inn dd {
+                font-size: 14px;
+            }
+            #menu_inn dd a {
+                color: #000;
+            }
+            #menu_inn dd a:hover {
+                color: #c4c4c4;
+            }
+
+            /*### imgArea ###*/
+            #imgArea {
+                width: 1400px;
+                float: left;
+            }
+            #imgArea h4 {
+                font-size: 50px;
+                font-weight: 400;
+                font-family: "nor";
+                line-height: 50px;
+            }
+            #imgArea h4 i {
+                font-family: "italic";
+            }
+
+            #imgArea ul {
+                width: 100%;
+            }
+            #imgArea li {
+                width: 500px;
+                padding-right: 15px;
+                padding-bottom: 30px;
+                float: left;
+            }
+            #imgArea li a {
+                display: block;
+                width: 100%;
+                color: #333;
+            }
+            #imgArea li a .img {
+                display: block;
+                width: 100%;
+                overflow: hidden;
+            }
+            #imgArea li a .img img {
+                width: 100%;
+                transform: scale(1);
+                transition: transform 0.3s linear;
+            }
+            #imgArea li a .img:hover img {
+                transform: scale(1.1);
+            }
+            #imgArea li a .text {
+                display: block;
+                width: 100%;
+                padding-top: 10px;
+                font-size: 14px;
+                font-weight: 700;
+            }
+
+            #menuArea:after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+
+            /*##### watch_list #####*/
+            .watch_list {
+                width: 100%;
+                height: 700px; /*background-color:#333;*/
+            }
+            .watch_list .menu {
+                width: 300px;
+                height: 550px;
+                padding-top: 150px;
+                padding-left: 83px;
+                float: left;
+            }
+            .watch_list .menu p {
+                line-height: 40px;
+            }
+            .watch_list .menu p a {
+                font-size: 15px;
+                color: #000;
+            }
+
+            .watch_list .list {
+                width: 1520px;
+                height: 100%;
+                float: left;
+            }
+            .watch_list .list h4 {
+                font-size: 60px;
+                font-weight: 100;
+                color: #000;
+                padding: 30px 0;
+                font-family: "nor";
+            }
+            .watch_list .list h4 i {
+                font-family: "italic";
+            }
+            .watch_list .list .slideArea {
+                width: 100%;
+                position: relative;
+                overflow: hidden;
+            }
+            .watch_list .list ul {
+                width: 2160px;
+                height: 515px;
+            }
+            .watch_list .list li {
+                width: 350px;
+                height: 100%;
+                margin-right: 10px;
+                float: left;
+                position: relative;
+                background-image: url("img/head/watches/bg/bg0.png");
+            }
+            .watch_list .list li a {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+            .watch_list .list li a .img {
+                width: 250px;
+                position: absolute;
+                left: 50px;
+                top: 91px;
+            }
+            .watch_list .list li a .img img {
+                width: 100%;
+                transform: scale(1);
+                transition: transform 0.5s linear;
+            }
+            .watch_list .list li:hover .img img {
+                transform: scale(1.1);
+            }
+            .watch_list .list li a .textBx {
+                display: block;
+                width: 100%;
+                height: 150px;
+                text-align: center;
+                position: absolute;
+                left: 0;
+                bottom: 30px;
+            }
+            .watch_list .list li a .textBx .tx_img {
+                display: block;
+                width: 180px;
+                height: 110px;
+                padding: 0 85px;
+            }
+            .watch_list .list li a .textBx .tx_img img {
+                width: 100%;
+            }
+            .watch_list .list li a .textBx .text {
+                display: block;
+                width: 100%;
+                padding-top: 10px;
+                font-size: 15px;
+            }
+
+            .watch_list .list .watch1 {
+                background-image: url("img/head/watches/bg/bg1.png");
+            }
+            .watch_list .list .watch2 {
+                background-image: url("img/head/watches/bg/bg2.png");
+                background-position: right center;
+            }
+            .watch_list .list .watch3 {
+                background-image: url("img/head/watches/bg/bg3.png");
+                background-position: right center;
+            }
+            .watch_list .list .watch4 {
+                background-image: url("img/head/watches/bg/bg4.png");
+                background-position: right center;
+            }
+            .watch_list .list .watch5 {
+                background-image: url("img/head/watches/bg/bg5.png");
+                background-position: right center;
+            }
+
+            .watch_list .list .slideArea .btnArea p {
+                width: 39px;
+                height: 39px;
+                line-height: 40px;
+                border: 1px solid #fff;
+                color: #fff;
+                text-align: center;
+                font-size: 25px;
+                border-radius: 20px;
+                cursor: pointer;
+                position: absolute;
+                top: 237px;
+            }
+            .watch_list .list .slideArea .btnArea .prevBtn {
+                left: 0;
+            }
+            .watch_list .list .slideArea .btnArea .nextBtn {
+                right: 0;
+            }
+
+            /*##### service_list #####*/
+            #service_list {
+                width: 100%;
+                height: 700px;
+                background-color: #fff;
+            }
+            #service_list .menu {
+                width: 300px;
+                height: 550px;
+                padding-top: 150px;
+                padding-left: 83px;
+                float: left;
+            }
+            #service_list .menu p {
+                line-height: 40px;
+            }
+            #service_list .menu p a {
+                font-size: 15px;
+                color: #000;
+            }
+
+            #service_list .list {
+                width: 1520px;
+                height: 100%;
+                float: left;
+            }
+            #service_list .list h4 {
+                font-size: 60px;
+                font-weight: 100;
+                color: #000;
+                padding: 30px 0;
+                font-family: "nor";
+            }
+            #service_list .list h4 i {
+                font-family: "italic";
+            }
+            #service_list .list .slideArea {
+                width: 100%;
+                position: relative;
+                overflow: hidden;
+            }
+            #service_list .list ul {
+                width: 1920px;
+                height: 310px;
+            }
+            #service_list .list li {
+                width: 470px;
+                margin-right: 10px;
+                float: left;
+            }
+            #service_list .list li a {
+                display: block;
+                width: 100%;
+                color: #000;
+            }
+            #service_list .list li a .img {
+                display: block;
+                width: 100%;
+            }
+            #service_list .list li a .img img {
+                width: 100%;
+            }
+            #service_list .list li a .text {
+                line-height: 30px;
+                font-size: 15px;
+            }
+
+            #service_list .list .slideArea .btnArea p {
+                width: 39px;
+                height: 39px;
+                border: 1px solid #fff;
+                text-align: center;
+                line-height: 36px;
+                font-size: 20px;
+                border-radius: 25px;
+                color: #fff;
+                background-color: rgba(0, 0, 0, 0.5);
+                position: absolute;
+                top: 118px;
+                cursor: pointer;
+            }
+            #service_list .list .slideArea .btnArea .prevBtn {
+                left: 0;
+            }
+            #service_list .list .slideArea .btnArea .nextBtn {
+                right: 0;
+            }
+
+            /*##### our_list #####*/
+            #our_list {
+                width: 100%;
+                height: 700px;
+                background-color: #fff;
+            }
+            #our_list .menu {
+                width: 300px;
+                height: 550px;
+                padding-top: 150px;
+                padding-left: 83px;
+                float: left;
+            }
+            #our_list .menu p {
+                line-height: 40px;
+            }
+            #our_list .menu p a {
+                font-size: 15px;
+                color: #000;
+            }
+
+            #our_list .list {
+                width: 1520px;
+                height: 100%;
+                float: left;
+            }
+            #our_list .list h4 {
+                font-size: 60px;
+                font-weight: 100;
+                color: #000;
+                padding: 30px 0;
+                font-family: "nor";
+            }
+            #our_list .list h4 i {
+                font-family: "italic";
+            }
+            #our_list .list .slideArea {
+                width: 100%;
+                position: relative;
+                overflow: hidden;
+            }
+            #our_list .list ul {
+                width: 2880px;
+                height: 310px;
+            }
+            #our_list .list li {
+                width: 470px;
+                margin-right: 10px;
+                float: left;
+            }
+            #our_list .list li a {
+                display: block;
+                width: 100%;
+                color: #000;
+            }
+            #our_list .list li a .img {
+                display: block;
+                width: 100%;
+            }
+            #our_list .list li a .img img {
+                width: 100%;
+            }
+            #our_list .list li a .text {
+                line-height: 30px;
+                font-size: 15px;
+            }
+
+            #our_list .list .slideArea .btnArea p {
+                width: 39px;
+                height: 39px;
+                border: 1px solid #fff;
+                text-align: center;
+                line-height: 36px;
+                font-size: 20px;
+                border-radius: 25px;
+                color: #fff;
+                background-color: rgba(0, 0, 0, 0.5);
+                position: absolute;
+                top: 118px;
+                cursor: pointer;
+            }
+            #our_list .list .slideArea .btnArea .prevBtn {
+                left: 0;
+            }
+            #our_list .list .slideArea .btnArea .nextBtn {
+                right: 0;
+            }
+
+            /*################## container ###################*/
+            #container {
+                width: 100%;
+                background-color: #000;
+                color: #fff;
+
+                /* 벤더 프리픽스 */
+                background-image: linear-gradient(to top, #000, #777);
+                background-image: -webkit-linear-gradient(top, #000, #777);
+                background-image: -mox-linear-gradient(top, #000, #777);
+                background-image: -o-linear-gradient(top, #000, #777);
+                background-image: -ms-linear-gradient(top, #000, #777);
+            }
+
+            #container h3 {
+                font-family: "nor";
+                font-weight: 100;
+                font-size: 65px;
+                line-height: 55px;
+                letter-spacing: -4px;
+            }
+            #container h3 i {
+                font-family: "italic";
+                letter-spacing: 0;
+            }
+
+            /*##### visualWrap #####*/
+            #visualWrap {
+                width: 100%;
+            }
+            #visual {
+                width: 100%;
+                height: 960px;
+                overflow: hidden;
+                background-image: url("img/header_v12.jpg.transform.aphero.jpg");
+                background-position: center center;
+                background-repeat: no-repeat;
+                position: relative;
+            }
+
+            #visual .textBx {
+                width: 550px;
+                position: absolute;
+                left: 80px;
+                bottom: 200px;
+            }
+            #visual .textBx .title {
+                font-size: 85px;
+                padding: 50px 0;
+                font-family: "nor";
+                line-height: 75px;
+                letter-spacing: -4px;
+            }
+            #visual .textBx .title i {
+                font-family: "italic";
+                letter-spacing: 0;
+            }
+            #visual .textBx .more {
+                width: 160px;
+            }
+            #visual .textBx .more a {
+                display: block;
+                width: 100%;
+                font-size: 16px;
+                text-align: right;
+            }
+
+            #visual .textBx .more a:before {
+                content: "";
+                display: inline-block;
+                width: 45px;
+                height: 1px;
+                background-color: #f6f5f3;
+                margin-bottom: 5px;
+                transition: width 0.3s linear;
+            }
+
+            #visual .textBx .more:hover a:before {
+                width: 10px;
+            }
+
+            /*##### latestArea #####*/
+            #latestArea {
+                width: 100%;
+            }
+            #latest_inn {
+                width: 100%;
+                height: 970px;
+                padding: 100px 0;
+                overflow: hidden;
+            }
+
+            #latest_inn h3 {
+                width: 1803px;
+                height: 180px;
+                padding-left: 100px;
+                opacity: 0;
+                transition: opacity 0.5s linear;
+            }
+
+            #latest_inn .slideArea {
+                max-width: 1430px;
+                margin-left: 473px;
+                position: relative;
+                overflow: hidden;
+                transform: translatex(100px);
+                opacity: 0;
+                transition: transform 0.5s linear, opacity 1s linear;
+            }
+
+            #latest_inn .slideArea ul {
+                width: 3840px;
+                display: flex;
+            }
+            #latest_inn .slideArea li {
+                width: 470px;
+                margin-left: 10px;
+            }
+            #latest_inn .slideArea li:first-child {
+                margin-left: 0;
+            }
+
+            /*img 영역*/
+            #latest_inn .slideArea li .img {
+                width: 100%;
+                height: 620px;
+                overflow: hidden;
+            }
+            #latest_inn .slideArea li .img img {
+                width: 100%;
+            }
+
+            /*textBx 영역*/
+            #latest_inn .slideArea li .textBx h4 {
+                line-height: 50px;
+            }
+            #latest_inn .slideArea li .textBx .text {
+                width: 400px;
+                padding-right: 70px;
+                font-size: 14px;
+            }
+
+            /*more 영역*/
+            #latest_inn .slideArea li .more {
+                width: 160px;
+                margin-top: 20px;
+            }
+            #latest_inn .slideArea li .more a {
+                display: block;
+                text-align: right;
+            }
+            #latest_inn .slideArea li .more a:before {
+                content: "";
+                display: inline-block;
+                width: 45px;
+                height: 1px;
+                background-color: #456148;
+                margin-bottom: 5px;
+                transition: width 0.3s linear;
+            }
+
+            #latest_inn .slideArea li .more:hover a:before {
+                width: 10px;
+            }
+
+            #latest_inn .slideArea ul:after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+
+            #latest_inn .slideArea .btnArea p {
+                width: 49px;
+                height: 49px;
+                line-height: 50px;
+                text-align: center;
+                font-size: 30px;
+                border: 1px solid #fff;
+                border-radius: 25px;
+                position: absolute;
+                top: 300px;
+                cursor: pointer;
+            }
+            #latest_inn .slideArea .btnArea .prevBtn {
+                left: 0;
+            }
+            #latest_inn .slideArea .btnArea .nextBtn {
+                right: 0;
+            }
+
+            /*##### artArea #####*/
+            #artArea {
+                width: 100%;
+                height: 680px;
+            }
+            #art_inn {
+                width: 1503px;
+                height: 480px;
+                padding: 100px 200px;
+                display: flex;
+            }
+
+            #art_inn .textArea {
+                width: 430px;
+                margin-right: 323px;
+                margin-top: 100px;
+            }
+            #art_inn .textArea h3 {
+                transform: translatey(80px);
+                opacity: 0;
+                transition: all 0.3s linear;
+            }
+            #art_inn .textArea .text {
+                padding: 40px 0 30px;
+                transform: translatey(80px);
+                opacity: 0;
+                transition: all 0.3s linear 0.3s;
+            }
+            #art_inn .textArea .more {
+                width: 160px;
+                transform: translatey(80px);
+                opacity: 0;
+                transition: all 0.3s linear 0.6s;
+            }
+            #art_inn .textArea .more a {
+                display: block;
+                width: 100%;
+                text-align: right;
+            }
+            #art_inn .textArea .more a:before {
+                content: "";
+                display: inline-block;
+                width: 45px;
+                height: 1px;
+                background-color: #456148;
+                margin-bottom: 5px;
+                transition: width 0.3s linear;
+            }
+            #art_inn .textArea .more:hover a:before {
+                width: 10px;
+            }
+
+            #art_inn .imgArea {
+                width: 750px;
+                border-radius: 50px;
+                float: left;
+                transition: box-shadow 0.2s linear;
+            }
+            #art_inn:hover .imgArea {
+                box-shadow: 0 0 70px rgba(255, 255, 255, 0.3);
+            }
+
+            #art_inn .imgArea .img {
+                width: 100%;
+            }
+            #art_inn .imgArea .img img {
+                width: 100%;
+                border-radius: 50px;
+            }
+
+            /*##### musicArea #####*/
+            #musicArea {
+                width: 100%;
+                height: 850px;
+            }
+            #music_inn {
+                width: 1703px;
+                height: 650px;
+                padding: 100px;
+                display: flex;
+            }
+
+            #music_inn .imgArea {
+                width: 1000px;
+                height: 100%;
+                overflow: hidden;
+                transform: scale(1.1);
+                opacity: 0;
+                transition: transform 0.5s linear, opacity 1s linear;
+            }
+            #music_inn .imgArea .img {
+                width: 100%;
+            }
+            #music_inn .imgArea .img img {
+                width: 100%;
+            }
+
+            #music_inn .textArea {
+                width: 503px;
+                margin-top: 100px;
+                margin-left: 100px;
+                height: 450px;
+            }
+            #music_inn:hover .textArea h3 {
+                text-shadow: 5px 5px 10px rgba(200, 200, 0, 0.7);
+            }
+            #music_inn .textArea .text {
+                padding: 40px 0 30px;
+            }
+            #music_inn .textArea .more {
+                width: 160px;
+            }
+            #music_inn .textArea .more a {
+                display: block;
+                width: 100%;
+                text-align: right;
+            }
+            #music_inn .textArea .more a:before {
+                content: "";
+                display: inline-block;
+                width: 45px;
+                height: 1px;
+                background-color: #456148;
+                margin-bottom: 5px;
+                transition: width 0.3s linear;
+            }
+
+            #music_inn .textArea .more:hover a:before {
+                width: 10px;
+            }
+
+            /*##### atelierArea #####*/
+            #atelierArea {
+                width: 100%;
+                height: 700px;
+            }
+            #atelier_inn {
+                width: 1503px;
+                height: 500px;
+                padding: 100px 200px;
+                display: flex;
+            }
+
+            #atelier_inn .textArea {
+                width: 430px;
+                margin-top: 70px;
+                margin-right: 223px;
+            }
+            #atelier_inn .textArea h3 {
+                transform: translatey(80px);
+                opacity: 0;
+                transition: all 0.3s linear;
+            }
+            #atelier_inn .textArea .text {
+                padding: 40px 0 30px;
+                transform: translatey(80px);
+                opacity: 0;
+                transition: all 0.3s linear 0.3s;
+            }
+            #atelier_inn .textArea .more {
+                width: 160px;
+                transform: translatey(80px);
+                opacity: 0;
+                transition: all 0.3s linear 0.6s;
+            }
+            #atelier_inn .textArea .more a {
+                display: block;
+                width: 100%;
+                text-align: right;
+            }
+            #atelier_inn .textArea .more a:before {
+                content: "";
+                display: inline-block;
+                width: 45px;
+                height: 1px;
+                background-color: #456148;
+                margin-bottom: 5px;
+                transition: width 0.3s linear;
+            }
+
+            #atelier_inn .textArea .more:hover a:before {
+                width: 10px;
+            }
+
+            #atelier_inn .imgArea {
+                width: 650px;
+                margin-left: 100px;
+                height: 430px;
+                margin-top: 50px;
+                border-radius: 10px;
+                overflow: hidden;
+                float: left;
+                animation: boxs 4s infinite alternate;
+            }
+            @keyframes boxs {
+                0% {
+                    box-shadow: 0 0 100px rgba(255, 255, 255, 0.3);
+                }
+                50% {
+                    box-shadow: 0 0 150px rgba(255, 255, 255, 0.6);
+                }
+                100% {
+                    box-shadow: 0 0 100px rgba(255, 255, 255, 0.3);
+                }
+            }
+
+            #atelier_inn .imgArea .img {
+                width: 100%;
+                height: 100%;
+                border-radius: 10px;
+            }
+            #atelier_inn .imgArea .img img {
+                width: 100%;
+            }
+
+            /*##### collectionArea #####*/
+            #collectionArea {
+                width: 100%;
+                height: 1050px;
+            }
+            #collect_inn {
+                width: 100%;
+                height: 850px;
+                padding: 100px 0;
+                overflow: hidden;
+            }
+
+            #collect_inn h3 {
+                width: 1803px;
+                padding-left: 100px;
+                padding-bottom: 50px;
+                opacity: 0;
+                transition: opacity 0.5s linear;
+            }
+
+            #collect_inn .slideArea {
+                width: 1430px;
+                margin-left: 473px;
+                position: relative;
+                overflow: hidden;
+                transform: translatex(100px);
+                opacity: 0;
+                transition: all 0.5s linear;
+            }
+            #collect_inn .slideArea ul {
+                width: 2880px;
+                height: 668px;
+                display: flex;
+            }
+            #collect_inn .slideArea li {
+                width: 470px;
+                height: 100%;
+                margin-left: 10px;
+            }
+            #collect_inn .slideArea li:first-child {
+                margin-left: 0;
+            }
+
+            #collect_inn .slideArea li .img {
+                width: 100%;
+            }
+            #collect_inn .slideArea li .img img {
+                width: 100%;
+            }
+
+            #collect_inn .slideArea li .view {
+                width: 160px;
+                margin-top: 20px;
+            }
+            #collect_inn .slideArea li .view a {
+                display: block;
+                width: 100%;
+                font-size: 15px;
+                text-align: right;
+            }
+            #collect_inn .slideArea li .view a:before {
+                content: "";
+                display: inline-block;
+                width: 45px;
+                height: 1px;
+                background-color: #fff;
+                margin-bottom: 5px;
+                transition: width 0.3s linear;
+            }
+            #collect_inn .slideArea li .view:hover a:before {
+                width: 10px;
+            }
+
+            #collect_inn .slideArea .btnArea p {
+                width: 49px;
+                height: 49px;
+                line-height: 50px;
+                text-align: center;
+                font-size: 30px;
+                border: 1px solid #fff;
+                border-radius: 25px;
+                position: absolute;
+                top: 300px;
+                cursor: pointer;
+            }
+            #collect_inn .slideArea .btnArea .prevBtn {
+                left: 0;
+            }
+            #collect_inn .slideArea .btnArea .nextBtn {
+                right: 0;
+            }
+
+            /*##### craftArea #####*/
+            #craftArea {
+                width: 100%;
+                height: 1150px;
+            }
+            #craft_inn {
+                width: 1803px;
+                height: 1000px;
+                padding: 50px 50px 100px;
+            }
+
+            #craft_inn h3 {
+                width: 1703px;
+                padding-left: 60px;
+                padding-bottom: 50px;
+            }
+
+            #craft_inn ul {
+                width: 100%;
+                height: 800px;
+                margin-top: 50px;
+                position: relative;
+            }
+
+            #craft_inn li {
+                width: 300px;
+                background-color: #fff;
+                color: #333;
+                box-shadow: 10px 10px 20px rgba(255, 255, 255, 0.5);
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+
+            #craft_inn .brassus {
+                left: 50px;
+                animation: tops 3s infinite alternate;
+            }
+            #craft_inn .savoir_faire {
+                left: 400px;
+                top: 90px;
+                animation: bottoms 3s infinite alternate;
+            }
+            #craft_inn .art {
+                left: 750px;
+                animation: tops 3s infinite alternate;
+            }
+            #craft_inn .music {
+                left: 1100px;
+                top: 100px;
+                animation: bottoms 3s infinite alternate;
+            }
+            #craft_inn .golf {
+                left: 1450px;
+                animation: tops 3s infinite alternate;
+            }
+
+            /*
+		@keyframes rights{
+			0%{transform:translatex(0);}
+			50%{transform:translatex(80px);}
+			100%{transform:translatex(0);}
+		}
+		*/
+
+            @keyframes tops {
+                0% {
+                    transform: translatey(0);
+                }
+                100% {
+                    transform: translatey(10px);
+                }
+            }
+
+            @keyframes bottoms {
+                0% {
+                    transform: translatey(0);
+                }
+                100% {
+                    transform: translatey(-10px);
+                }
+            }
+
+            #craft_inn li .img {
+                width: 100%;
+            }
+            #craft_inn li .img img {
+                width: 100%;
+            }
+
+            #craft_inn li .textBx {
+                width: 290px;
+                padding-left: 10px;
+            }
+            #craft_inn li .textBx h4 {
+                line-height: 50px;
+            }
+            #craft_inn li .textBx .text {
+                width: 100%;
+                font-size: 14px;
+            }
+
+            #craft_inn li .more {
+                width: 160px;
+                height: 40px;
+                margin-top: 20px;
+            }
+            #craft_inn li .more a {
+                display: block;
+                width: 100%;
+                text-align: right;
+                color: #333;
+                font-size: 14px;
+            }
+            #craft_inn li .more a:before {
+                content: "";
+                display: inline-block;
+                width: 45px;
+                height: 1px;
+                background-color: #456148;
+                margin-bottom: 5px;
+                transition: width 0.3s linear;
+            }
+            #craft_inn li .more:hover a:before {
+                width: 10px;
+            }
+
+            /*##### boutiqueArea #####*/
+            #boutiqueArea {
+                width: 100%;
+                height: 550px;
+                background-color: #fff;
+                color: #000;
+            }
+            #boutique_inn {
+                width: 1703px;
+                height: 350px;
+                padding: 100px;
+                display: flex;
+            }
+
+            #boutique_inn .title {
+                width: 473px;
+                padding-left: 100px;
+            }
+            #boutique_inn .title h3 {
+                padding: 50px 0;
+            }
+            #boutique_inn .title .explore {
+                width: 200px;
+            }
+            #boutique_inn .title .explore a {
+                display: block;
+                width: 100%;
+                color: #000;
+                font-size: 15px;
+                text-align: right;
+            }
+            #boutique_inn .title .explore a:before {
+                content: "";
+                display: inline-block;
+                width: 45px;
+                height: 1px;
+                background-color: #456148;
+                margin-bottom: 5px;
+                transition: width 0.3s linear;
+            }
+            #boutique_inn .title .explore:hover a:before {
+                width: 10px;
+            }
+
+            #boutique_inn .img {
+                width: 830px;
+                margin-left: 200px;
+            }
+            #boutique_inn .img img {
+                width: 100%;
+            }
+
+            /*##### newsArea #####*/
+            #newsArea {
+                width: 100%;
+                height: 500px;
+                background-color: #fff;
+                color: #000;
+            }
+            #news_inn {
+                width: 1703px;
+                height: 150px;
+                padding: 200px 100px 150px;
+                display: flex;
+            }
+
+            #news_inn h3 {
+                width: 700px;
+                font-size: 55px;
+            }
+            #news_inn .text {
+                width: 453px;
+                padding-top: 50px;
+            }
+            #news_inn .btn {
+                width: 550px;
+            }
+            #news_inn .btn a {
+                display: block;
+                width: 280px;
+                margin-left: 270px;
+                height: 60px;
+                margin-top: 40px;
+                line-height: 60px;
+                text-align: center;
+                background-color: #000;
+                color: #fff;
+            }
+
+            /*########## 버리는 영역 ##########*/
+            h1,
+            h2 {
+                position: absolute;
+                left: -9999px;
+                width: 1px;
+                height: 1px;
+                font-size: 1px;
+                line-height: 0;
+                overflow: hidden;
+            }
+
+            /*################### 미디어 쿼리 영역 #######################*/
+            /*##### 스마트폰 세로버전 #####*/
+            @media all and (min-width: 320px) and (max-width: 480px) {
+                /*### headerWrap ###*/
+                #headerWrap {
+                    height: 100px;
+                }
+                #header {
+                    width: 270px;
+                    height: 30px;
+                    padding: 35px 15px;
+                    margin: 0 auto;
+                    display: flex;
+                }
+
+                #navArea {
+                    width: 90px;
+                }
+                #navArea .allMenu {
+                    width: 20px;
+                    height: 20px;
+                    margin-top: 0;
+                }
+                #navArea .gnb {
+                    display: none;
+                }
+
+                #logoArea {
+                    display: none;
+                }
+                #mob_logo {
+                    display: block;
+                    width: 90px;
+                }
+                #mob_logo a {
+                    display: block;
+                    width: 33px;
+                    margin: 0 auto;
+                }
+                #mob_logo a img {
+                    width: 100%;
+                }
+
+                #infoMenu {
+                    width: 30px;
+                    margin-left: 60px;
+                }
+                #infoMenu .servicesArea {
+                    display: none;
+                }
+                #infoMenu .iconArea {
+                    width: 100%;
+                    float: none;
+                    margin-top: 0;
+                }
+                #infoMenu .iconArea li {
+                    margin-right: 0;
+                }
+                #infoMenu .iconArea .login {
+                    display: none;
+                }
+
+                .watch_list {
+                    display: none;
+                }
+
+                /*### container ###*/
+                /*visual*/
+                #visual {
+                    height: 400px;
+                    background-size: 480px;
+                    background-position: right top;
+                }
+                #visual .textBx {
+                    width: 280px;
+                    height: 150px;
+                    font-size: 30px;
+                    position: absolute;
+                    left: 20px;
+                    bottom: 20px;
+                }
+                #visual .textBx .desc {
+                    font-size: 12px;
+                    padding: 30px 0 15px;
+                }
+                #visual .textBx .title {
+                    padding: 0;
+                    font-size: 30px;
+                    line-height: 30px;
+                }
+                #visual .textBx .more {
+                    width: 145px;
+                    margin-top: 5px;
+                }
+                #visual .textBx .more a {
+                    font-size: 14px;
+                }
+
+                /*latestArea*/
+                #latestArea {
+                    width: 100%;
+                }
+                #latest_inn {
+                    width: 280px;
+                    height: 700px;
+                    padding: 50px 10px;
+                    margin: 0 auto;
+                }
+
+                #latest_inn h3 {
+                    width: 100%;
+                    height: 100px;
+                    padding-left: 0;
+                    font-size: 40px;
+                    line-height: 45px;
+                }
+
+                #latest_inn .slideArea {
+                    width: 100%;
+                    height: 570px;
+                    margin-left: 0;
+                    transform: translatex(0);
+                }
+                #latest_inn .slideArea ul {
+                    width: 2240px;
+                    height: 100%;
+                    padding-top: 0;
+                    margin-left: 0;
+                    display: flex;
+                }
+                #latest_inn .slideArea li {
+                    width: 280px;
+                    margin-left: 0;
+                }
+
+                /*img 영역*/
+                #latest_inn .slideArea li .img {
+                    height: 370px;
+                    overflow: hidden;
+                }
+
+                /*textBx 영역*/
+                #latest_inn .slideArea li .textBx h4 {
+                    line-height: 25px;
+                    padding: 10px 0;
+                    font-size: 15px;
+                }
+                #latest_inn .slideArea li .textBx .text {
+                    width: 100%;
+                    padding-right: 0;
+                }
+                #latest_inn .slideArea li .more {
+                    width: 150px;
+                }
+                #latest_inn .slideArea li .more a {
+                    font-size: 14px;
+                }
+
+                /*btn영역*/
+                #latest_inn .slideArea .btnArea p {
+                    width: 33px;
+                    height: 33px;
+                    line-height: 40px;
+                    font-size: 25px;
+                    border-radius: 17px;
+                    position: absolute;
+                    top: 180px;
+                }
+
+                /*artArea*/
+                #artArea {
+                    width: 100%;
+                    height: 700px;
+                }
+                #art_inn {
+                    width: 280px;
+                    height: 600px;
+                    padding: 50px 10px;
+                    margin: 0 auto;
+                    flex-direction: column;
+                }
+
+                #art_inn .textArea {
+                    width: 100%;
+                    margin-right: 0;
+                    margin-top: 0;
+                }
+                #art_inn .textArea h3 {
+                    font-size: 40px;
+                    font-weight: 400;
+                }
+                #art_inn .textArea .text {
+                    padding: 30px 0;
+                }
+
+                #art_inn .imgArea {
+                    width: 100%;
+                    padding-top: 30px;
+                    border-radius: 20px;
+                }
+                #art_inn:hover .imgArea {
+                    box-shadow: none;
+                }
+
+                #art_inn .imgArea .img {
+                    width: 100%;
+                }
+
+                /*musicArea*/
+                #musicArea {
+                    width: 100%;
+                    height: 650px;
+                }
+                #music_inn {
+                    width: 280px;
+                    height: 550px;
+                    padding: 50px 10px;
+                    margin: 0 auto;
+                    flex-direction: column;
+                }
+
+                #music_inn .imgArea {
+                    width: 280px;
+                    height: 185px;
+                }
+
+                #music_inn .textArea {
+                    width: 100%;
+                    margin: 0;
+                    height: 320px;
+                }
+                #music_inn .textArea h3 {
+                    font-size: 35px;
+                    padding-top: 20px;
+                }
+                #music_inn:hover .textArea h3 {
+                    text-shadow: none;
+                }
+                #music_inn .textArea .text {
+                    padding: 20px 0;
+                }
+
+                /*atelierArea*/
+                #atelierArea {
+                    width: 100%;
+                    height: 700px;
+                }
+                #atelier_inn {
+                    width: 280px;
+                    height: 630px;
+                    padding: 50px 10px;
+                    margin: 0 auto;
+                    flex-direction: column;
+                }
+
+                #atelier_inn .textArea {
+                    width: 100%;
+                    margin-right: 0;
+                    margin-top: 0;
+                }
+                #atelier_inn .textArea h3 {
+                    font-size: 35px;
+                }
+                #atelier_inn .textArea .text {
+                    padding: 30px 0;
+                }
+
+                #atelier_inn .imgArea {
+                    width: 280px;
+                    margin-left: 0;
+                    height: 185px;
+                    margin-top: 40px;
+                    border-radius: 10px;
+                    overflow: hidden;
+                    animation: none;
+                }
+
+                /*collectionArea*/
+                #collectionArea {
+                    width: 100%;
+                    height: 700px;
+                }
+                #collect_inn {
+                    width: 280px;
+                    height: 600px;
+                    padding: 50px 10px;
+                    margin: 0 auto;
+                }
+
+                #collect_inn h3 {
+                    width: 100%;
+                    padding-left: 0;
+                    padding-bottom: 30px;
+                    font-size: 35px;
+                }
+
+                #collect_inn .slideArea {
+                    width: 100%;
+                    height: 430px;
+                    margin-left: 0;
+                }
+                #collect_inn .slideArea ul {
+                    width: 1680px;
+                    height: 100%;
+                    margin-left: 0;
+                    display: flex;
+                }
+                #collect_inn .slideArea li {
+                    width: 280px;
+                    height: 100%;
+                    margin-left: 0;
+                }
+                #collect_inn .slideArea li:first-child {
+                    display: block;
+                }
+
+                #collect_inn .slideArea .btnArea p {
+                    width: 33px;
+                    height: 33px;
+                    line-height: 40px;
+                    font-size: 25px;
+                    border-radius: 17px;
+                    position: absolute;
+                    top: 180px;
+                }
+
+                /*craftArea*/
+                #craftArea {
+                    width: 100%;
+                    height: 900px;
+                }
+                #craft_inn {
+                    width: 280px;
+                    height: 800px;
+                    padding: 50px 10px;
+                    margin: 0 auto;
+                }
+
+                #craft_inn h3 {
+                    width: 100%;
+                    padding-left: 0;
+                    padding-bottom: 0;
+                    font-size: 35px;
+                    line-height: 40px;
+                }
+
+                #craft_inn ul {
+                    width: 100%;
+                    height: 600px;
+                    margin-left: 0;
+                    position: static;
+                }
+                #craft_inn li {
+                    width: 100%;
+                    box-shadow: none;
+                    position: static;
+                    animation: none;
+                    display: none;
+                }
+                #craft_inn li:first-child {
+                    display: block;
+                }
+
+                #craft_inn li .textBx {
+                    width: 260px;
+                    padding: 0 10px;
+                }
+
+                #craft_inn .brassus {
+                    left: 50px;
+                    animation: none;
+                }
+
+                /*boutiqueArea*/
+                #boutiqueArea {
+                    width: 100%;
+                    height: 450px;
+                }
+                #boutique_inn {
+                    width: 280px;
+                    height: 350px;
+                    padding: 50px 10px;
+                    margin: 0 auto;
+                    flex-direction: column;
+                }
+
+                #boutique_inn .title {
+                    width: 100%;
+                    padding-left: 0;
+                    padding-bottom: 30px;
+                }
+                #boutique_inn .title h3 {
+                    font-size: 35px;
+                    padding: 30px 0;
+                }
+
+                #boutique_inn .img {
+                    width: 280px;
+                    margin-left: 0;
+                }
+
+                /*newsArea*/
+                #newsArea {
+                    width: 100%;
+                    height: 420px;
+                }
+                #news_inn {
+                    width: 280px;
+                    height: 320px;
+                    padding: 50px 10px;
+                    margin: 0 auto;
+                    flex-direction: column;
+                }
+
+                #news_inn h3 {
+                    width: 100%;
+                    font-size: 40px;
+                }
+                #news_inn .text {
+                    width: 100%;
+                    padding-top: 30px;
+                }
+                #news_inn .btn {
+                    width: 100%;
+                }
+                #news_inn .btn a {
+                    width: 250px;
+                    margin-left: 15px;
+                    margin-top: 50px;
+                }
+
+                /*### footerWrap ###*/
+                #footerWrap {
+                    display: none;
+                }
+
+                /*################## mob_footerWrap ###################*/
+                #mob_footerWrap {
+                    display: block;
+                    width: 100%;
+                    height: 790px;
+                    background-color: #02291f;
+                }
+                #mob_footer {
+                    width: 280px;
+                    height: 740px;
+                    padding: 50px 10px 0;
+                    margin: 0 auto;
+                }
+
+                #mob_footer .mob_footer_top {
+                    width: 100%;
+                    height: 580px;
+                }
+                #mob_footer .mob_footer_top .lang {
+                    width: 100%;
+                    height: 30px;
+                    padding-bottom: 50px;
+                }
+                #mob_footer .mob_footer_top .lang a {
+                    display: block;
+                    width: 250px;
+                    font-size: 13px;
+                    display: flex;
+                }
+                #mob_footer .mob_footer_top .lang a .icon {
+                    display: block;
+                    width: 22px;
+                    margin-right: 20px;
+                    height: 22px;
+                }
+                #mob_footer .mob_footer_top .lang a .icon img {
+                    width: 100%;
+                }
+                #mob_footer .mob_footer_top .lang a .text {
+                    display: block;
+                    width: 200px;
+                    line-height: 22px;
+                }
+
+                #mob_footer .mob_footer_top .footerNav {
+                    width: 100%;
+                    height: 500px;
+                    float: none;
+                }
+                #mob_footer .mob_footer_top .footerNav dl {
+                    width: 100%;
+                    height: 100px;
+                }
+                #mob_footer .mob_footer_top .footerNav dt {
+                    width: 100%;
+                    height: 40px;
+                    font-size: 15px;
+                    color: #fff;
+                    border-bottom: 1px solid #fff;
+                    font-weight: 700;
+                    cursor: pointer;
+                }
+                #mob_footer .mob_footer_top .footerNav dd {
+                    height: 25px;
+                    font-size: 15px;
+                    padding-top: 5px;
+                }
+
+                #mob_footer .mob_footer_bottom {
+                    width: 240px;
+                    height: 160px;
+                    padding: 0;
+                    margin: 0 auto;
+                }
+                #mob_footer .mob_footer_bottom .iconArea {
+                    width: 100%;
+                    height: 30px;
+                    padding-bottom: 20px;
+                }
+                #mob_footer .mob_footer_bottom .iconArea ul {
+                    width: 100%;
+                    padding-right: 0;
+                    height: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                }
+                #mob_footer .mob_footer_bottom .iconArea li {
+                    width: 30px;
+                    height: 30px;
+                    overflow: hidden;
+                }
+                #mob_footer .mob_footer_bottom .iconArea li a {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                }
+                #mob_footer .mob_footer_bottom .iconArea .face a img {
+                    margin-left: -45px;
+                    margin-top: -5px;
+                }
+                #mob_footer .mob_footer_bottom .iconArea .insta a img {
+                    margin-left: -7px;
+                    margin-top: -5px;
+                }
+                #mob_footer .mob_footer_bottom .iconArea .twi a img {
+                    margin-left: -5px;
+                    margin-top: -81px;
+                }
+                #mob_footer .mob_footer_bottom .iconArea .yout a img {
+                    margin-left: -84px;
+                    margin-top: -6px;
+                }
+
+                #mob_footer .mob_footer_bottom .legalArea {
+                    width: 100%;
+                    height: 50px;
+                    padding-bottom: 20px;
+                    text-align: center;
+                }
+                #mob_footer .mob_footer_bottom .legalArea ul {
+                    width: 100%;
+                }
+                #mob_footer .mob_footer_bottom .legalArea li {
+                    display: inline-block;
+                    font-size: 14px;
+                    padding-right: 0;
+                    padding: 0 8px;
+                    border-right: 1px solid #fff;
+                }
+                #mob_footer .mob_footer_bottom .legalArea li:last-child {
+                    border-right: 0;
+                }
+
+                #mob_footer .mob_footer_bottom .copyArea {
+                    width: 100%;
+                    height: 20px;
+                    font-size: 14px;
+                    color: #fff;
+                    text-align: center;
+                }
+            }
+
+            /*##### 스마트폰 가로버전 #####*/
+            @media all and (min-width: 481px) and (max-width: 767px) {
+                /*### headerWrap ###*/
+                #headerWrap {
+                    height: 110px;
+                }
+                #header {
+                    width: 420px;
+                    height: 30px;
+                    padding: 40px 20px;
+                    margin: 0 auto;
+                }
+
+                #navArea {
+                    width: 140px;
+                }
+                #navArea .gnb {
+                    display: none;
+                }
+
+                #logoArea {
+                    display: none;
+                }
+                #mob_logo {
+                    display: block;
+                    width: 140px;
+                }
+                #mob_logo a {
+                    display: block;
+                    width: 35px;
+                    margin: 0 auto;
+                }
+                #mob_logo a img {
+                    width: 100%;
+                }
+
+                #infoMenu {
+                    width: 30px;
+                    margin-left: 110px;
+                }
+                #infoMenu .servicesArea {
+                    display: none;
+                }
+                #infoMenu .iconArea {
+                    width: 100%;
+                }
+                #infoMenu .iconArea li {
+                    margin-right: 0;
+                }
+                #infoMenu .iconArea .login {
+                    display: none;
+                }
+
+                .watch_list {
+                    display: none;
+                }
+
+                /*### container ###*/
+                /*visual*/
+
+                #visual {
+                    height: 600px;
+                    background-size: 767px;
+                    background-position: right top;
+                }
+                #visual .textBx {
+                    width: 350px;
+                    height: 180px;
+                    position: absolute;
+                    left: 40px;
+                    bottom: 20px;
+                }
+                #visual .textBx .title {
+                    font-size: 35px;
+                    padding: 10px 0;
+                    line-height: 40px;
+                }
+                #visual .textBx .more {
+                    margin-top: 20px;
+                }
+                #visual .textBx .more a {
+                    font-size: 15px;
+                }
+
+                /*latestArea*/
+                #latestArea {
+                    width: 100%;
+                }
+                #latest_inn {
+                    width: 440px;
+                    height: 900px;
+                    padding: 50px 10px;
+                    margin: 0 auto;
+                }
+
+                #latest_inn h3 {
+                    width: 100%;
+                    height: 100px;
+                    padding-left: 0;
+                    font-size: 50px;
+                    line-height: 45px;
+                }
+
+                #latest_inn .slideArea {
+                    width: 100%;
+                    height: 900px;
+                    margin-left: 0;
+                    margin: 0 auto;
+                    overflow: hidden;
+                }
+                #latest_inn .slideArea ul {
+                    width: 3520px;
+                    height: 100%;
+                    padding-top: 30px;
+                    display: flex;
+                }
+                #latest_inn .slideArea li {
+                    width: 440px;
+                    margin-left: 0;
+                }
+
+                /*img 영역*/
+                #latest_inn .slideArea li .img {
+                    width: 100%;
+                    height: 580px;
+                    overflow: hidden;
+                }
+
+                /*textBx 영역*/
+                #latest_inn .slideArea li .textBx h4 {
+                    line-height: 25px;
+                    padding: 10px 0 20px;
+                    font-size: 15px;
+                }
+                #latest_inn .slideArea li .textBx .text {
+                    width: 100%;
+                    padding-right: 0;
+                }
+
+                /*artArea*/
+                #artArea {
+                    width: 100%;
+                    height: 800px;
+                }
+                #art_inn {
+                    width: 440px;
+                    height: 700px;
+                    padding: 50px 10px;
+                    margin: 0 auto;
+                    flex-direction: column;
+                }
+
+                #art_inn .textArea {
+                    width: 100%;
+                    margin-right: 0;
+                    margin-top: 0;
+                }
+                #art_inn .textArea h3 {
+                    font-size: 40px;
+                    font-weight: 400;
+                }
+                #art_inn .textArea .text {
+                    padding: 30px 0;
+                }
+
+                #art_inn .imgArea {
+                    width: 440px;
+                    padding-top: 30px;
+                    border-radius: 20px;
+                }
+                #art_inn:hover .imgArea {
+                    box-shadow: none;
+                }
+
+                /*musicArea*/
+                #musicArea {
+                    width: 100%;
+                    height: 650px;
+                }
+                #music_inn {
+                    width: 440px;
+                    height: 550px;
+                    padding: 50px 10px;
+                    margin: 0 auto;
+                    flex-direction: column;
+                }
+
+                #music_inn .imgArea {
+                    width: 440px;
+                    height: 280px;
+                }
+
+                #music_inn .textArea {
+                    width: 100%;
+                    margin: 0;
+                    height: 320px;
+                }
+                #music_inn .textArea h3 {
+                    font-size: 35px;
+                    padding-top: 20px;
+                }
+                #music_inn:hover .textArea h3 {
+                    text-shadow: none;
+                }
+                #music_inn .textArea .text {
+                    padding: 20px 0;
+                }
+
+                /*atelierArea*/
+                #atelierArea {
+                    width: 100%;
+                    height: 700px;
+                }
+                #atelier_inn {
+                    width: 440px;
+                    height: 620px;
+                    padding: 50px 10px;
+                    margin: 0 auto;
+                    flex-direction: column;
+                }
+
+                #atelier_inn .textArea {
+                    width: 100%;
+                    margin-right: 0;
+                    margin-top: 0;
+                }
+                #atelier_inn .textArea h3 {
+                    font-size: 35px;
+                }
+                #atelier_inn .textArea .text {
+                    padding: 30px 0;
+                }
+
+                #atelier_inn .imgArea {
+                    width: 440px;
+                    margin-left: 0;
+                    height: 290px;
+                    margin-top: 40px;
+                    border-radius: 10px;
+                    overflow: hidden;
+
+                    animation: none;
+                }
+
+                /*collectionArea*/
+                #collectionArea {
+                    width: 100%;
+                    height: 850px;
+                }
+                #collect_inn {
+                    width: 440px;
+                    height: 800px;
+                    padding: 50px 10px;
+                    margin: 0 auto;
+                }
+
+                #collect_inn h3 {
+                    width: 100%;
+                    padding-left: 0;
+                    padding-bottom: 30px;
+                    font-size: 45px;
+                }
+
+                #collect_inn .slideArea {
+                    width: 100%;
+                    height: 680px;
+                    margin-left: 0;
+                }
+                #collect_inn .slideArea ul {
+                    width: 2640px;
+                    height: 100%;
+                    display: flex;
+                }
+                #collect_inn .slideArea li {
+                    width: 440px;
+                    margin-left: 0;
+                }
+                #collect_inn .slideArea li:first-child {
+                    display: block;
+                }
+
+                #collect_inn .slideArea li .img {
+                    width: 100%;
+                }
+                #collect_inn .slideArea li .img img {
+                    width: 100%;
+                }
+
+                /*craftArea*/
+                #craftArea {
+                    width: 100%;
+                    height: 1000px;
+                }
+                #craft_inn {
+                    width: 440px;
+                    height: 900px;
+                    padding: 50px 10px;
+                    margin: 0 auto;
+                }
+
+                #craft_inn h3 {
+                    width: 100%;
+                    padding-left: 0;
+                    padding-bottom: 30px;
+                    font-size: 35px;
+                }
+
+                #craft_inn ul {
+                    width: 100%;
+                    height: 700px;
+                    margin-top: 0;
+                }
+                #craft_inn li {
+                    width: 100%;
+                    box-shadow: none;
+                    position: static;
+                    animation: none;
+                    display: none;
+                }
+                #craft_inn li:first-child {
+                    display: block;
+                }
+
+                #craft_inn li .textBx {
+                    width: 420px;
+                    padding: 0 10px;
+                }
+
+                /*boutiqueArea*/
+                #boutiqueArea {
+                    width: 100%;
+                    height: 550px;
+                }
+                #boutique_inn {
+                    width: 440px;
+                    height: 450px;
+                    padding: 50px 10px;
+                    margin: 0 auto;
+                    flex-direction: column;
+                }
+
+                #boutique_inn .title {
+                    width: 100%;
+                    padding-left: 0;
+                    padding-bottom: 30px;
+                }
+                #boutique_inn .title h3 {
+                    font-size: 35px;
+                    padding: 30px 0;
+                }
+
+                #boutique_inn .img {
+                    width: 440px;
+                    margin-left: 0;
+                }
+
+                /*newsArea*/
+                #newsArea {
+                    width: 100%;
+                    height: 420px;
+                }
+                #news_inn {
+                    width: 440px;
+                    height: 320px;
+                    padding: 50px 10px;
+                    margin: 0 auto;
+                    flex-direction: column;
+                }
+
+                #news_inn h3 {
+                    width: 100%;
+                    font-size: 40px;
+                }
+                #news_inn .text {
+                    width: 100%;
+                    padding-top: 30px;
+                }
+                #news_inn .btn {
+                    width: 100%;
+                }
+                #news_inn .btn a {
+                    width: 400px;
+                    margin-left: 15px;
+                    margin-top: 50px;
+                }
+
+                /*### footerWrap ###*/
+                #footerWrap {
+                    display: none;
+                }
+
+                /*################## mob_footerWrap ###################*/
+                #mob_footerWrap {
+                    display: block;
+                    width: 100%;
+                    height: 790px;
+                    background-color: #02291f;
+                }
+                #mob_footer {
+                    width: 440px;
+                    height: 740px;
+                    padding: 50px 10px 0;
+                    margin: 0 auto;
+                }
+
+                #mob_footer .mob_footer_top {
+                    width: 100%;
+                    height: 580px;
+                }
+                #mob_footer .mob_footer_top .lang {
+                    width: 100%;
+                    height: 30px;
+                    padding-bottom: 50px;
+                }
+                #mob_footer .mob_footer_top .lang a {
+                    display: block;
+                    width: 250px;
+                    font-size: 13px;
+                    display: flex;
+                }
+                #mob_footer .mob_footer_top .lang a .icon {
+                    display: block;
+                    width: 22px;
+                    margin-right: 20px;
+                    height: 22px;
+                }
+                #mob_footer .mob_footer_top .lang a .icon img {
+                    width: 100%;
+                }
+                #mob_footer .mob_footer_top .lang a .text {
+                    display: block;
+                    width: 200px;
+                    line-height: 22px;
+                }
+
+                #mob_footer .mob_footer_top .footerNav {
+                    width: 100%;
+                    height: 500px;
+                }
+                #mob_footer .mob_footer_top .footerNav dl {
+                    width: 100%;
+                    height: 100px;
+                }
+                #mob_footer .mob_footer_top .footerNav dt {
+                    width: 100%;
+                    height: 40px;
+                    font-size: 15px;
+                    color: #fff;
+                    border-bottom: 1px solid #fff;
+                    font-weight: 700;
+                    cursor: pointer;
+                }
+                #mob_footer .mob_footer_top .footerNav dd {
+                    height: 25px;
+                    font-size: 15px;
+                    padding-top: 5px;
+                }
+
+                #mob_footer .mob_footer_bottom {
+                    width: 240px;
+                    height: 160px;
+                    padding: 0;
+                    margin: 0 auto;
+                }
+                #mob_footer .mob_footer_bottom .iconArea {
+                    width: 100%;
+                    height: 30px;
+                    padding-bottom: 20px;
+                }
+                #mob_footer .mob_footer_bottom .iconArea ul {
+                    width: 100%;
+                    padding-right: 0;
+                    height: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                }
+                #mob_footer .mob_footer_bottom .iconArea li {
+                    width: 30px;
+                    margin-right: 20px;
+                    height: 30px;
+                    overflow: hidden;
+                }
+                #mob_footer .mob_footer_bottom .iconArea li a {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                }
+                #mob_footer .mob_footer_bottom .iconArea .face a img {
+                    margin-left: -45px;
+                    margin-top: -5px;
+                }
+                #mob_footer .mob_footer_bottom .iconArea .insta a img {
+                    margin-left: -7px;
+                    margin-top: -5px;
+                }
+                #mob_footer .mob_footer_bottom .iconArea .twi a img {
+                    margin-left: -5px;
+                    margin-top: -81px;
+                }
+                #mob_footer .mob_footer_bottom .iconArea .yout a img {
+                    margin-left: -84px;
+                    margin-top: -6px;
+                }
+
+                #mob_footer .mob_footer_bottom .legalArea {
+                    width: 100%;
+                    height: 50px;
+                    padding-bottom: 20px;
+                }
+                #mob_footer .mob_footer_bottom .legalArea ul {
+                    width: 100%;
+                    text-align: center;
+                }
+                #mob_footer .mob_footer_bottom .legalArea li {
+                    display: inline-block;
+                    font-size: 14px;
+                    padding-right: 0;
+                    padding: 0 8px;
+                    border-right: 1px solid #fff;
+                }
+                #mob_footer .mob_footer_bottom .legalArea li:last-child {
+                    border-right: 0;
+                }
+
+                #mob_footer .mob_footer_bottom .copyArea {
+                    width: 100%;
+                    height: 20px;
+                    font-size: 14px;
+                    color: #fff;
+                    float: none;
+                    text-align: center;
+                }
+            }
+
+            /*##### 태블릿 pc버전 #####*/
+            @media all and (min-width: 768px) and (max-width: 1024px) {
+                /*### headerWrap ###*/
+                #headerWrap {
+                    height: 150px;
+                }
+                #header {
+                    width: 710px;
+                    height: 50px;
+                    padding: 50px 20px;
+                    margin: 0 auto;
+                }
+
+                #navArea {
+                    width: 240px;
+                }
+                #navArea .gnb {
+                    display: none;
+                }
+
+                #logoArea {
+                    width: 200px;
+                    padding: 0;
+                }
+
+                #infoMenu {
+                    width: 30px;
+                    margin-left: 235px;
+                }
+                #infoMenu .servicesArea {
+                    display: none;
+                }
+                #infoMenu .iconArea {
+                    width: 100%;
+                }
+                #infoMenu .iconArea li {
+                    margin-right: 0;
+                }
+                #infoMenu .iconArea .login {
+                    display: none;
+                }
+
+                .watch_list {
+                    display: none;
+                }
+
+                /*### container ###*/
+                #container h3 {
+                    font-size: 50px;
+                }
+
+                /*visual*/
+                #visual {
+                    height: 530px;
+                    background-size: 1024px;
+                }
+                #visual .textBx {
+                    width: 320px;
+                    height: 230px;
+                    font-size: 45px;
+                    position: absolute;
+                    left: 50px;
+                    top: 250px;
+                    font-size: 15px;
+                }
+                #visual .textBx .title {
+                    font-size: 45px;
+                    padding: 10px 0;
+                    line-height: 40px;
+                }
+                #visual .textBx .more {
+                    margin-top: 20px;
+                }
+
+                /*lastestArea*/
+                #latest_inn {
+                    height: 900px;
+                    padding: 50px 0;
+                }
+
+                #latest_inn h3 {
+                    width: 700px;
+                    padding-left: 50px;
+                    padding-bottom: 30px;
+                }
+
+                #latest_inn .slideArea {
+                    width: 740px;
+                    margin: 0 auto;
+                }
+                #latest_inn .slideArea ul {
+                    width: 3000px;
+                    margin-left: 0;
+                }
+                #latest_inn .slideArea li {
+                    width: 370px;
+                    margin-left: 5px;
+                }
+
+                /*img 영역*/
+                #latest_inn .slideArea li .img {
+                    height: 495px;
+                }
+
+                /*textBx 영역*/
+                #latest_inn .slideArea li .textBx h4 {
+                    line-height: 30px;
+                }
+                #latest_inn .slideArea li .textBx .text {
+                    width: 375px;
+                    padding-right: 0;
+                }
+
+                /*btn 영역*/
+                #latest_inn .slideArea .btnArea p {
+                    width: 39px;
+                    height: 39px;
+                    line-height: 40px;
+                    text-align: center;
+                    font-size: 30px;
+                    border: 1px solid #fff;
+                    border-radius: 20px;
+                    position: absolute;
+                    top: 250px;
+                    cursor: pointer;
+                }
+
+                /*artArea*/
+                #artArea {
+                    width: 100%;
+                    height: 500px;
+                }
+                #art_inn {
+                    width: 650px;
+                    height: 400px;
+                    padding: 50px;
+                    margin: 0 auto;
+                }
+
+                #art_inn .textArea {
+                    width: 100%;
+                    margin-right: 0;
+                    margin-top: 0;
+                }
+                #art_inn .textArea h3 {
+                    font-size: 40px;
+                    font-weight: 400;
+                }
+                #art_inn .textArea .text {
+                    padding: 30px 0;
+                }
+
+                #art_inn .imgArea {
+                    width: 550px;
+                    padding-top: 30px;
+                    border-radius: 20px;
+                }
+                #art_inn:hover .imgArea {
+                    box-shadow: none;
+                }
+
+                /*musicArea*/
+                #musicArea {
+                    width: 100%;
+                    height: 400px;
+                }
+                #music_inn {
+                    width: 650px;
+                    height: 300px;
+                    padding: 50px;
+                    margin: 0 auto;
+                }
+
+                #music_inn .imgArea {
+                    width: 550px;
+                    height: 360px;
+                }
+
+                #music_inn .textArea {
+                    width: 100%;
+                    height: 230px;
+                    margin: 0;
+                    margin-left: 20px;
+                }
+                #music_inn .textArea h3 {
+                    font-size: 35px;
+                    padding-top: 20px;
+                }
+                #music_inn:hover .textArea h3 {
+                    text-shadow: none;
+                }
+                #music_inn .textArea .text {
+                    padding: 20px 0;
+                }
+
+                /*atelierArea*/
+                #atelierArea {
+                    width: 100%;
+                    height: 500px;
+                }
+                #atelier_inn {
+                    width: 550px;
+                    height: 400px;
+                    padding: 50px;
+                    margin: 0 auto;
+                }
+
+                #atelier_inn .textArea {
+                    width: 100%;
+                    margin-right: 0;
+                    margin-top: 15px;
+                }
+                #atelier_inn .textArea h3 {
+                    font-size: 40px;
+                }
+                #atelier_inn .textArea .text {
+                    padding: 30px 0;
+                }
+
+                #atelier_inn .imgArea {
+                    width: 550px;
+                    margin-left: 0;
+                    height: 365px;
+                    margin-top: 40px;
+                    border-radius: 10px;
+                    overflow: hidden;
+
+                    animation: none;
+                }
+
+                /*collectionArea*/
+                #collectionArea {
+                    width: 100%;
+                    height: 850px;
+                }
+                #collect_inn {
+                    width: 100%;
+                    height: 750px;
+                    padding: 50px 0;
+                }
+
+                #collect_inn h3 {
+                    width: 700px;
+                    padding-left: 50px;
+                    padding-bottom: 30px;
+                }
+
+                #collect_inn .slideArea {
+                    width: 740px;
+                    height: 550px;
+                    margin-left: 0;
+                    margin: 0 auto;
+                }
+                #collect_inn .slideArea ul {
+                    width: 3000px;
+                }
+                #collect_inn .slideArea li {
+                    width: 370px;
+                    margin-left: 5px;
+                }
+
+                #collect_inn .slideArea .btnArea p {
+                    width: 39px;
+                    height: 39px;
+                    line-height: 40px;
+                    text-align: center;
+                    font-size: 30px;
+                    border: 1px solid #fff;
+                    border-radius: 20px;
+                    position: absolute;
+                    top: 250px;
+                    cursor: pointer;
+                }
+
+                /*craftArea*/
+                #craftArea {
+                    width: 100%;
+                    height: 900px;
+                }
+                #craft_inn {
+                    width: 100%;
+                    height: 800px;
+                    padding: 50px 0;
+                }
+
+                #craft_inn h3 {
+                    width: 700px;
+                    padding-left: 50px;
+                    padding-bottom: 50px;
+                }
+
+                #craft_inn ul {
+                    width: 750px;
+                    height: 570px;
+                    margin-left: 0;
+                    position: static;
+                    margin: 0 auto;
+                    display: flex;
+                    overflow: hidden;
+                }
+                #craft_inn li {
+                    width: 240px;
+                    margin: 0 5px;
+                    box-shadow: none;
+                    position: static;
+                }
+                #craft_inn .brassus,
+                #craft_inn .savoir_faire,
+                #craft_inn .art,
+                #craft_inn .music,
+                #craft_inn .golf {
+                    animation: none;
+                }
+
+                #craft_inn li .textBx {
+                    width: 220px;
+                    padding: 0 10px;
+                }
+
+                /*boutiqueArea*/
+                #boutiqueArea {
+                    width: 100%;
+                    height: 450px;
+                }
+                #boutique_inn {
+                    width: 550px;
+                    height: 350px;
+                    padding: 100px;
+                    margin: 0 auto;
+                }
+
+                #boutique_inn .title {
+                    width: 100%;
+                    padding-left: 0;
+                    padding-bottom: 30px;
+                }
+                #boutique_inn .title h3 {
+                    font-size: 50px;
+                    padding: 30px 0;
+                }
+
+                #boutique_inn .img {
+                    width: 550px;
+                    margin-left: 0;
+                }
+
+                /*newsArea*/
+                #newsArea {
+                    width: 100%;
+                    height: 300px;
+                }
+                #news_inn {
+                    width: 700px;
+                    height: 200px;
+                    padding: 50px 0;
+                    margin: 0 auto;
+                }
+
+                #news_inn h3 {
+                    width: 100%;
+                    font-size: 40px;
+                    padding-bottom: 30px;
+                }
+                #news_inn .text {
+                    width: 350px;
+                    padding-top: 0;
+                }
+                #news_inn .btn {
+                    width: 400px;
+                }
+                #news_inn .btn a {
+                    width: 200px;
+                    margin-left: 100px;
+                    margin-top: 0;
+                }
+
+                /*### footerWrap ###*/
+                #footerWrap {
+                    height: 600px;
+                }
+                #footer {
+                    width: 700px;
+                    height: 500px;
+                    padding: 50px 25px;
+                    margin: 0 auto;
+                }
+
+                #footer .footer_top {
+                    height: 300px;
+                }
+
+                #footer .footer_top .lang {
+                    height: 100px;
+                }
+
+                #footer .footer_top .footerNav {
+                    width: 100%;
+                    height: 270px;
+                }
+                #footer .footer_top .footerNav dl {
+                    width: 175px;
+                }
+                #footer .footer_top .footerNav dd {
+                    font-size: 14px;
+                }
+
+                #footer .footer_bottom {
+                    height: 80px;
+                    padding: 35px 0;
+                }
+                #footer .footer_bottom .iconArea {
+                    height: 30px;
+                    padding-bottom: 30px;
+                }
+
+                #footer .footer_bottom .legalArea {
+                    width: 500px;
+                    height: 50px;
+                }
+                #footer .footer_bottom .legalArea li {
+                    padding-right: 20px;
+                }
+
+                #footer .footer_bottom .copyArea {
+                    width: 200px;
+                    height: 50px;
+                    font-size: 14px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="skipNav">
+            <div class="skip">
+                <p class="lastest"><a href="#latestArea" title="신상품 영역">신상품 영역 바로가기</a></p>
+                <p class="art"><a href="#artArea" title="art 영역">art 영역 바로가기</a></p>
+                <p class="music"><a href="#musicArea" title="music 영역">music 영역 바로가기</a></p>
+                <p class="atelier"><a href="#atelierArea" title="atelier 영역">atelier 영역 바로가기</a></p>
+                <p class="collection"><a href="#collectionArea" title="collection 영역">collection 영역 바로가기</a></p>
+                <p class="craft"><a href="#craftArea" title="craft 영역">craft 영역 바로가기</a></p>
+                <p class="boutique"><a href="#boutiqueArea" title="boutique 영역">boutique 영역 바로가기</a></p>
+                <p class="news"><a href="#newsArea" title="news 영역">news 영역 바로가기</a></p>
+                <p><a href="#footerWrap" title="꼬릿말 영역">꼬릿말 영역 바로가기</a></p>
+            </div>
+        </div>
+        <div id="wrap">
+            <h1>Audemars Piguet</h1>
+            <div id="headerWrap">
+                <header id="header">
+                    <div id="navArea">
+                        <div class="allMenu">
+                            <a href="#" title="전체메뉴">
+                                <span>─</span>
+                                <span>─</span>
+                            </a>
+                        </div>
+                        <nav class="gnb">
+                            <h2>네비게이션 영역</h2>
+                            <ul>
+                                <li class="watches">Watches</li>
+                                <li class="world">Our World</li>
+                                <li><a href="sub/stories.html" title="stories">Stories</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div id="logoArea">
+                        <a href="index.html" title="오데마피게사이트">
+                            <img src="img/logo.svg" alt="오데마피게_로고" />
+                        </a>
+                    </div>
+                    <div id="mob_logo">
+                        <a href="#" title="오데마피게사이트">
+                            <img src="img/logo_mini.svg" alt="오데마피게_로고" />
+                        </a>
+                    </div>
+                    <div id="infoMenu">
+                        <ul class="servicesArea">
+                            <li class="service"><a href="#" title="services">Services</a></li>
+                            <li><a href="#" title="boutiques">Boutiques</a></li>
+                        </ul>
+                        <ul class="iconArea">
+                            <li class="login">
+                                <a href="sub/login.html" title="login">
+                                    <img src="img/icon22.png" alt="로그인아이콘" />
+                                </a>
+                            </li>
+                            <li class="search">
+                                <a href="sub/all_watches.html" title="search">
+                                    <img src="img/icon22.png" alt="돋보기아이콘" />
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </header>
+                <div id="menuArea">
+                    <div id="menu_inn">
+                        <dl>
+                            <dt>WATCHES</dt>
+                            <dd><a href="/sub/all_watches.html" title="all_watches">All Watches</a></dd>
+                            <dd><a href="/sub/collections.html" title="our_collections">Our Collections</a></dd>
+                            <dd><a href="/sub/new_releases.html" title="new_releases">New Releases</a></dd>
+                        </dl>
+                        <dl>
+                            <dt>OUR WORLD</dt>
+                            <dd><a href="/sub/our_world.html" title="born_in_le_brassus">Born in Le Brassus</a></dd>
+                            <dd><a href="/sub/our_world.html" title="savoir_faire">Savoir-Faire</a></dd>
+                        </dl>
+                        <dl>
+                            <dt>STORIES</dt>
+                            <dd><a href="/sub/stories.html" title="all_news">All news</a></dd>
+                        </dl>
+                        <dl>
+                            <dt>SERVIES</dt>
+                            <dd><a href="#none" title="all_services">All Services</a></dd>
+                            <dd><a href="#none" title="caring_for_your_watch">Caring for your watch</a></dd>
+                        </dl>
+                        <dl>
+                            <dt>BOUTIQUES</dt>
+                            <dd><a href="#none" title="find_a_boutique">Find a boutique</a></dd>
+                        </dl>
+                    </div>
+                    <div id="imgArea">
+                        <h4>
+                            LATEST<br />
+                            <i>STORIES</i>
+                        </h4>
+                        <ul>
+                            <li>
+                                <a href="#" title="The Lyonz Live from Montreux">
+                                    <span class="img">
+                                        <img src="img/allMenu/music.jpg" alt="The Lyonz Live from Montreux" />
+                                    </span>
+                                    <span class="text">The Lyonz Live from Montreux</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" title="Crack History’s Code">
+                                    <span class="img">
+                                        <img src="img/allMenu/atelier1.jpg" alt="Crack History’s Code" />
+                                    </span>
+                                    <span class="text"
+                                        >Musée Atelier Audemars Piguet : "Crack History’s Code" Masterclass</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" title="New Temporary Exhibition">
+                                    <span class="img">
+                                        <img src="img/allMenu/atelier2.jpg" alt="New Temporary Exhibition" />
+                                    </span>
+                                    <span class="text">Musee Atelier Audemars Piguet: New Temporary Exhibition</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" title="Ryoji Ikeda, Data-Verse Trilogy">
+                                    <span class="img">
+                                        <img src="img/allMenu/art.jpg" alt="Ryoji Ikeda, Data-Verse Trilogy" />
+                                    </span>
+                                    <span class="text">Ryoji Ikeda, Data-Verse Trilogy</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="watch_list">
+                    <div class="menu">
+                        <p><a href="sub/all_watches.html" title="all_watches">All Watches</a></p>
+                        <p><a href="sub/collections.html" title="our_collections">Our Collections</a></p>
+                        <p><a href="sub/new_releases.html" title="new_releases">New Releses</a></p>
+                    </div>
+                    <div class="list">
+                        <h4>OUR <i>COLLECTIONS</i></h4>
+                        <div class="slideArea">
+                            <ul>
+                                <li class="watch0">
+                                    <a href="sub/watch_scroll.html" title="CODE 11.59 컬렉션 링크">
+                                        <span class="img">
+                                            <img src="img/head/watches/watch/watch0.png" alt="시계이미지0" />
+                                        </span>
+                                        <span class="textBx">
+                                            <span class="tx_img">
+                                                <img src="img/head/watches/watch/text0.png" alt="컬렉션제목" />
+                                            </span>
+                                            <span class="text">View collection</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="watch1">
+                                    <a href="sub/watch_scroll.html" title="royal oak 컬렉션 링크">
+                                        <span class="img">
+                                            <img src="img/head/watches/watch/watch1.png" alt="시계이미지1" />
+                                        </span>
+                                        <span class="textBx">
+                                            <span class="tx_img">
+                                                <img src="img/head/watches/watch/text1.png" alt="컬렉션제목" />
+                                            </span>
+                                            <span class="text">View collection</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="watch2">
+                                    <a href="sub/watch_scroll.html" title="royal oak offshore 컬렉션 링크">
+                                        <span class="img">
+                                            <img src="img/head/watches/watch/watch2.png" alt="시계이미지2" />
+                                        </span>
+                                        <span class="textBx">
+                                            <span class="tx_img">
+                                                <img src="img/head/watches/watch/text2.png" alt="컬렉션제목" />
+                                            </span>
+                                            <span class="text">View collection</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="watch3">
+                                    <a href="sub/watch_scroll.html" title="royal oak concept 컬렉션 링크">
+                                        <span class="img">
+                                            <img src="img/head/watches/watch/watch3.png" alt="시계이미지3" />
+                                        </span>
+                                        <span class="textBx">
+                                            <span class="tx_img">
+                                                <img src="img/head/watches/watch/text3.png" alt="컬렉션제목" />
+                                            </span>
+                                            <span class="text">View collection</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="watch4">
+                                    <a href="sub/watch_scroll.html" title="RE MASTER 01 컬렉션 링크">
+                                        <span class="img">
+                                            <img src="img/head/watches/watch/watch4.png" alt="시계이미지4" />
+                                        </span>
+                                        <span class="textBx">
+                                            <span class="tx_img">
+                                                <img src="img/head/watches/watch/text4.png" alt="컬렉션제목" />
+                                            </span>
+                                            <span class="text">View collection</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="watch5">
+                                    <a href="sub/watch_scroll.html" title="MILLENARY 컬렉션 링크">
+                                        <span class="img">
+                                            <img src="img/head/watches/watch/watch5.png" alt="시계이미지5" />
+                                        </span>
+                                        <span class="textBx">
+                                            <span class="tx_img">
+                                                <img src="img/head/watches/watch/text5.png" alt="컬렉션제목" />
+                                            </span>
+                                            <span class="text">View collection</span>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="btnArea">
+                                <p class="prevBtn">&lt;</p>
+                                <p class="nextBtn">&gt;</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="our_list">
+                    <div class="menu">
+                        <p><a href="/sub/our_world.html" title="born_in_le_brassus">Born in Le Brassus</a></p>
+                        <p><a href="/sub/our_world.html" title="Savior_Faire">Savior-Faire</a></p>
+                        <p><a href="/sub/our_world.html" title="ap_art">AP X ART</a></p>
+                        <p><a href="/sub/our_world.html" title="ap_golf">AP X GOLF</a></p>
+                        <p><a href="/sub/our_world.html" title="ap_music">AP X MUSIC</a></p>
+                        <p><a href="/sub/our_world.html" title="foundation">Foundation</a></p>
+                    </div>
+                    <div class="list">
+                        <h4>WHO WE <i>ARE</i></h4>
+                        <div class="slideArea">
+                            <ul>
+                                <li>
+                                    <a href="/sub/our_world.html" title="Born in Le Brassus">
+                                        <span class="img">
+                                            <img src="img/head/world/brassus.jpg" alt="Born in Le Brassus" />
+                                        </span>
+                                        <span class="text">Born in Le Brassus</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/sub/our_world.html" title="Savior_Faire">
+                                        <span class="img">
+                                            <img src="img/head/world/Savoir_Faire.jpg" alt="Savior_Faire" />
+                                        </span>
+                                        <span class="text">Savior-Faire</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/sub/our_world.html" title="art">
+                                        <span class="img">
+                                            <img src="img/head/world/art.jpg" alt="ap_art" />
+                                        </span>
+                                        <span class="text">AP &amp; Art</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="golf">
+                                        <span class="img">
+                                            <img src="img/head/world/golf.jpg" alt="ap_golf" />
+                                        </span>
+                                        <span class="text">AP &amp; Golf</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/sub/our_world.html" title="music">
+                                        <span class="img">
+                                            <img src="img/head/world/music.jpg" alt="ap_music" />
+                                        </span>
+                                        <span class="text">AP &amp; Music</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/sub/our_world.html" title="foundation">
+                                        <span class="img">
+                                            <img src="img/head/world/foundation.jpg" alt="foundation" />
+                                        </span>
+                                        <span class="text">Foundation</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="btnArea">
+                                <p class="prevBtn">&lt;</p>
+                                <p class="nextBtn">&gt;</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="service_list">
+                    <div class="menu">
+                        <p><a href="#" title="all_services">All Services</a></p>
+                        <p><a href="#" title="caring_for_your_watch">Caring for your watch</a></p>
+                        <p><a href="#" title="where_to_service">Where to service</a></p>
+                        <p><a href="#" title="extend_your_warranty">Extend your Warranty</a></p>
+                        <p><a href="#" title="repair_pick_up">Repair pick up</a></p>
+                    </div>
+                    <div class="list">
+                        <h4>OUR <i>SERVICES</i></h4>
+                        <div class="slideArea">
+                            <ul>
+                                <li>
+                                    <a href="#" title="all services">
+                                        <span class="img">
+                                            <img src="img/head/services/all.jpg" alt="서비스이미지0" />
+                                        </span>
+                                        <span class="text">All Services</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="caring for your watch">
+                                        <span class="img">
+                                            <img src="img/head/services/caring.jpg" alt="서비스이미지1" />
+                                        </span>
+                                        <span class="text">Caring for your watch</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="after sales network">
+                                        <span class="img">
+                                            <img src="img/head/services/after_sales.jpg" alt="서비스이미지2" />
+                                        </span>
+                                        <span class="text">After Sales Network</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="terms n conditions">
+                                        <span class="img">
+                                            <img src="img/head/services/condition.jpg" alt="서비스이미지3" />
+                                        </span>
+                                        <span class="text">Terms &amp; Conditions</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="btnArea">
+                                <p class="prevBtn">&lt;</p>
+                                <p class="nextBtn">&gt;</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="container">
+                <div id="visualWrap">
+                    <div id="visual">
+                        <h2>광고영역</h2>
+                        <div class="textBx">
+                            <p class="desc">Code 11.59 by Audemars Piguet Tourbillon Openworked</p>
+                            <p class="title">
+                                MULTIFACETED TWO-TONE
+                                <i>ARCHITECTURE</i>
+                            </p>
+                            <p class="more">
+                                <a href="/sub/watch_detail.html" title="Discover_more">&nbsp;Discover more</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <section id="latestArea">
+                    <h2>신상품 영역</h2>
+                    <div id="latest_inn">
+                        <h3>
+                            EXPLORE<br />
+                            <i>OUR LATEST</i>
+                        </h3>
+                        <div class="slideArea">
+                            <ul>
+                                <li>
+                                    <p class="img"><img src="img/latest/latest0.jpg" alt="신상품이미지0" /></p>
+                                    <div class="textBx">
+                                        <h4>Royal Oak Offshore Selfwinding Chronograph</h4>
+                                        <p class="text">
+                                            Constantly pushing the limits of feasibility, the collection has taken
+                                            ever-more creative dimensions.
+                                        </p>
+                                    </div>
+                                    <div class="more">
+                                        <a href="#" title="Royal Oak Offshore Selfwinding Chronograph"
+                                            >&nbsp;Discover more</a
+                                        >
+                                    </div>
+                                </li>
+                                <li>
+                                    <p class="img"><img src="img/latest/latest1.jpg" alt="신상품이미지1" /></p>
+                                    <div class="textBx">
+                                        <h4>Royal Oak Selfwinding</h4>
+                                        <p class="text">
+                                            The refined aesthetic of this black model in 34 mm is enhanced with pink
+                                            gold accents for a subtle two-tone contrast. Timeless and versatile, the
+                                            black hues will seamlessly complement the unique style of its wearer.
+                                        </p>
+                                    </div>
+                                    <div class="more">
+                                        <a href="#" title="Royal Oak Selfwinding">&nbsp;Discover more</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p class="img"><img src="img/latest/latest2.jpg" alt="신상품이미지2" /></p>
+                                    <div class="textBx">
+                                        <h4>New Royal Oak Offshore Diver</h4>
+                                        <p class="text">
+                                            Powered by a new movement, Calibre 4308, these models are fit for the
+                                            wildest adventures in and out of the water.
+                                        </p>
+                                    </div>
+                                    <div class="more">
+                                        <a href="#" title="New Royal Oak Offshore Diver">&nbsp;Discover more</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p class="img"><img src="img/latest/latest3.jpg" alt="신상품이미지3" /></p>
+                                    <div class="textBx">
+                                        <h4>Royal Oak Offshore Selfwinding Flying Tourbillon Chronograph</h4>
+                                        <p class="text">
+                                            A new double complication makes its debut in the Royal Oak Offshore
+                                            collection in a brand new 43 mm diameter.
+                                        </p>
+                                    </div>
+                                    <div class="more">
+                                        <a href="#" title="New Royal Oak Offshore Diver">&nbsp;Discover more</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p class="img"><img src="img/latest/latest4.jpg" alt="신상품이미지4" /></p>
+                                    <div class="textBx">
+                                        <h4>Code 11.59 by Audemars Piguet Selfwinding Chronograph</h4>
+                                        <p class="text">
+                                            The Code 11.59 by Audemars Piguet Selfwinding Chronograph collection evolves
+                                            with two pioneering models bringing together 18-carat white or pink gold
+                                            with black ceramics.
+                                        </p>
+                                    </div>
+                                    <div class="more">
+                                        <a href="#" title="New Royal Oak Offshore Diver">&nbsp;Discover more</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p class="img"><img src="img/latest/latest5.jpg" alt="신상품이미지5" /></p>
+                                    <div class="textBx">
+                                        <h4>Royal Oak "Jumbo" Extra-Thin</h4>
+                                        <p class="text">
+                                            The Royal Oak collection presents a variety of models all enriched with
+                                            green dials. The new offerings include a 950 platinum Royal Oak “Jumbo”
+                                            Extra-Thin with a smoked green dial embellished with a sunburst pattern.
+                                        </p>
+                                    </div>
+                                    <div class="more">
+                                        <a href="#" title="New Royal Oak Offshore Diver">&nbsp;Discover more</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p class="img"><img src="img/latest/latest6.jpg" alt="신상품이미지6" /></p>
+                                    <div class="textBx">
+                                        <h4>Royal Oak Concept "Black Panther" Flying Tourbillon.</h4>
+                                        <p class="text">
+                                            This 42 mm piece speaks to Audemars Piguet’s long history of design
+                                            experimentation and connection to the larger cultural world.
+                                        </p>
+                                    </div>
+                                    <div class="more">
+                                        <a href="#" title="New Royal Oak Offshore Diver">&nbsp;Discover more</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p class="img"><img src="img/latest/latest7.jpg" alt="신상품이미지7" /></p>
+                                    <div class="textBx">
+                                        <h4>Royal Oak Offshore</h4>
+                                        <p class="text">
+                                            The Royal Oak Offshore presents a major redesign. While retaining the
+                                            essence of the watch’s original characteristics, the design of the case and
+                                            dial has evolved to offer optimum aesthetics and ergonomics.
+                                        </p>
+                                    </div>
+                                    <div class="more">
+                                        <a href="#" title="New Royal Oak Offshore Diver">&nbsp;Discover more</a>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="btnArea">
+                                <p class="prevBtn">&lt;</p>
+                                <p class="nextBtn">&gt;</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="artArea">
+                    <h2>story 영역</h2>
+                    <div id="art_inn">
+                        <div class="textArea">
+                            <h3>
+                                PHOEBE HUI,<br />
+                                <i>THE MOON IS LEAVING US</i>
+                            </h3>
+                            <p class="text">
+                                Hui’s work notably marks the first Audemars Piguet Art Commission to be exhibited in
+                                Asia, opening in the Duplex Studio at Tai Kwun from 25 April – 23 May 2021.
+                            </p>
+                            <div class="more">
+                                <a href="#" title="New Royal Oak Offshore Diver">&nbsp;Discover more</a>
+                            </div>
+                        </div>
+                        <div class="imgArea">
+                            <p class="img">
+                                <img src="img/art.jpg" alt="PHOEBE HUI" />
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section id="musicArea">
+                    <div id="music_inn">
+                        <div class="imgArea">
+                            <p class="img">
+                                <img src="img/music.jpg" alt="THe LYONZ" />
+                            </p>
+                        </div>
+                        <div class="textArea">
+                            <h3>
+                                THE LYONZ<br />
+                                <i>LIVE FROM MONTREUX</i>
+                            </h3>
+                            <p class="text">
+                                Experience the one-of-a-kind live performance of Montreal group THe LYONZ, organised in
+                                collaboration with the Montreux Jazz Festival.
+                            </p>
+                            <div class="more">
+                                <a href="#" title="New Royal Oak Offshore Diver">&nbsp;Discover more</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="atelierArea">
+                    <h2>atelier 영역</h2>
+                    <div id="atelier_inn">
+                        <div class="textArea">
+                            <h3>
+                                MUSÉE ATELIER<br />
+                                <i>AUDEMARS PIGUET</i>
+                            </h3>
+                            <p class="text">
+                                Experience our heritage, craftsmanship and connection to the world in the Musée Atelier
+                                Audemars Piguet which pays tribute to the craftspeople who have made what Audemars
+                                Piguet is today, generation after generation.
+                            </p>
+                            <div class="more">
+                                <a href="#" title="New Royal Oak Offshore Diver">&nbsp;Discover more</a>
+                            </div>
+                        </div>
+                        <div class="imgArea">
+                            <p class="img">
+                                <img src="img/atelier.jpg" alt="atelier_이미지" />
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section id="collectionArea">
+                    <h2>collection 영역</h2>
+                    <div id="collect_inn">
+                        <h3>
+                            OUR<br />
+                            <i>COLLECTIONS</i>
+                        </h3>
+                        <div class="slideArea">
+                            <ul>
+                                <li>
+                                    <p class="img"><img src="img/collection/collect0.jpg" alt="컬렉션이미지0" /></p>
+                                    <div class="view">
+                                        <a href="#" title="CODE 11.59">&nbsp;View Collection</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p class="img"><img src="img/collection/collect1.jpg" alt="컬렉션이미지1" /></p>
+                                    <div class="view">
+                                        <a href="#" title="ROYAL OAK">&nbsp;View Collection</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p class="img"><img src="img/collection/collect2.jpg" alt="컬렉션이미지2" /></p>
+                                    <div class="view">
+                                        <a href="#" title="ROYAL OAK OFFSHORE">&nbsp;View Collection</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p class="img"><img src="img/collection/collect3.jpg" alt="컬렉션이미지3" /></p>
+                                    <div class="view">
+                                        <a href="#" title="ROYAL OAK CONCEPT">&nbsp;View Collection</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p class="img"><img src="img/collection/collect4.jpg" alt="컬렉션이미지4" /></p>
+                                    <div class="view">
+                                        <a href="#" title="RE MASTER 01">&nbsp;View Collection</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p class="img"><img src="img/collection/collect5.jpg" alt="컬렉션이미지5" /></p>
+                                    <div class="view">
+                                        <a href="#" title="MILLENARY">&nbsp;View Collection</a>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="btnArea">
+                                <p class="prevBtn">&lt;</p>
+                                <p class="nextBtn">&gt;</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="craftArea">
+                    <h2>behind the craft 영역</h2>
+                    <div id="craft_inn">
+                        <h3>
+                            DISCOVER THE PASSION<br />
+                            <i>BEHIND THE CRAFT</i>
+                        </h3>
+                        <ul>
+                            <li class="brassus">
+                                <p class="img"><img src="img/craft/craft0.jpg" alt="le_brassus이미지" /></p>
+                                <div class="textBx">
+                                    <h4>Born in le brassus</h4>
+                                    <p class="text">
+                                        It is in the heart of the Vallée de Joux, a region that beats to the tune of
+                                        complicated watch mechanisms, that everything started for Audemars Piguet in
+                                        1875.
+                                    </p>
+                                </div>
+                                <div class="more">
+                                    <a href="#" title="Born in le brassus">&nbsp;Discover more</a>
+                                </div>
+                            </li>
+                            <li class="savoir_faire">
+                                <p class="img"><img src="img/craft/craft1.jpg" alt="Savoir_Faire이미지" /></p>
+                                <div class="textBx">
+                                    <h4>Our Savoir-Faire</h4>
+                                    <p class="text">
+                                        Since 1875, Audemars Piguet has perpetuated its founders’ ancestral savoir-faire
+                                        in forward-thinking ways, consistently pushing further the limits of the craft
+                                        and anticipating society’s ever-changing needs.
+                                    </p>
+                                </div>
+                                <div class="more">
+                                    <a href="#" title="Our Savoir-Faire">&nbsp;Discover more</a>
+                                </div>
+                            </li>
+                            <li class="art">
+                                <p class="img"><img src="img/craft/craft2.jpg" alt="Audemars_Piguet_Art이미지" /></p>
+                                <div class="textBx">
+                                    <h4>Audemars Piguet & Art</h4>
+                                    <p class="text">
+                                        Audemars Piguet Contemporary commissions international artists to create
+                                        contemporary artworks, fostering a global community of creators.
+                                    </p>
+                                </div>
+                                <div class="more">
+                                    <a href="#" title="Audemars_Piguet_Art">&nbsp;Discover more</a>
+                                </div>
+                            </li>
+                            <li class="music">
+                                <p class="img"><img src="img/craft/craft3.jpg" alt="Audemars_Piguet_music이미지" /></p>
+                                <div class="textBx">
+                                    <h4>Audemars Piguet & Music</h4>
+                                    <p class="text">
+                                        Audemars Piguet shares its passion for music and excellence, bringing people
+                                        together through the language of emotions.
+                                    </p>
+                                </div>
+                                <div class="more">
+                                    <a href="#" title="Audemars_Piguet_Music">&nbsp;Discover more</a>
+                                </div>
+                            </li>
+                            <li class="golf">
+                                <p class="img"><img src="img/craft/craft4.jpg" alt="Audemars_Piguet_Golf이미지" /></p>
+                                <div class="textBx">
+                                    <h4>Audemars Piguet & Golf</h4>
+                                    <p class="text">
+                                        Whether on a green or in the universe of Haute Horlogerie, it is always a
+                                        question of precision and elegance, the beauty of both gesture and performance.
+                                    </p>
+                                </div>
+                                <div class="more">
+                                    <a href="#" title="Audemars_Piguet_Golf">&nbsp;Discover more</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <section id="boutiqueArea">
+                    <h2>boutique 영역</h2>
+                    <div id="boutique_inn">
+                        <div class="title">
+                            <h3>
+                                FIND A<br />
+                                <i>BOUTIQUE</i>
+                            </h3>
+                            <p class="explore">
+                                <a href="#" title="Explore_all_Boutiques">&nbsp;Explore all Boutiques</a>
+                            </p>
+                        </div>
+                        <p class="img"><img src="img/boutique.jpg" alt="boutique_이미지" /></p>
+                    </div>
+                </section>
+                <section id="newsArea">
+                    <h2>뉴스영역</h2>
+                    <div id="news_inn">
+                        <h3>
+                            GET THE<br />
+                            <i>LATEST NEWS</i>
+                        </h3>
+                        <p class="text">
+                            Be the first to receive the latest news on our brand, products and upcoming events.
+                        </p>
+                        <p class="btn">
+                            <a href="#" title="subscribe">Subscribe</a>
+                        </p>
+                    </div>
+                </section>
+            </div>
+            <div id="footerWrap">
+                <footer id="footer">
+                    <div class="footer_top">
+                        <div class="lang">
+                            <a href="#" title="Change language / currency">
+                                <i class="icon">
+                                    <img src="img/lang_icon.png" alt="지구본_아이콘" />
+                                </i>
+                                <span class="text">Change language / currency</span>
+                            </a>
+                        </div>
+                        <div class="footerNav">
+                            <dl>
+                                <dt>WATCHES</dt>
+                                <dd><a href="#" title="All_Watches">All Watches</a></dd>
+                                <dd><a href="#" title="Our_Collections">Our Collections</a></dd>
+                                <dd><a href="#" title="New_Releases">New Releases</a></dd>
+                                <dd><a href="#" title="Find_a_Boutique">Find a Boutique</a></dd>
+                            </dl>
+                            <dl>
+                                <dt>OUR WORLD</dt>
+                                <dd><a href="#" title="Born_in_Le_Brassus">Born in Le Brassus</a></dd>
+                                <dd><a href="#" title="Savoir-Faire">Savoir-Faire</a></dd>
+                                <dd><a href="#" title="Stories">Stories</a></dd>
+                                <dd><a href="#" title="Stay_connected">Stay connected</a></dd>
+                            </dl>
+                            <dl>
+                                <dt>SERVICES</dt>
+                                <dd><a href="#" title="All_services">All services</a></dd>
+                                <dd><a href="#" title="Extend_your_warranty">Extend your warranty</a></dd>
+                                <dd><a href="#" title="Contact us">Contact_us</a></dd>
+                                <dd><a href="#" title="FAQ">FAQ</a></dd>
+                            </dl>
+                            <dl>
+                                <dt>COMPANY</dt>
+                                <dd><a href="#" title="Careers">Careers</a></dd>
+                                <dd><a href="#" title="Press">Press</a></dd>
+                                <dd><a href="#" title="Musée Atelier">Musée Atelier</a></dd>
+                                <dd><a href="#" title="Foundation">Foundation</a></dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="footer_bottom">
+                        <div class="iconArea">
+                            <ul>
+                                <li class="face">
+                                    <a href="#" title="facebook_link">
+                                        <img src="img/removebg_preview.png" alt="페이스북_아이콘" />
+                                    </a>
+                                </li>
+                                <li class="insta">
+                                    <a href="#" title="instagram_link">
+                                        <img src="img/removebg_preview.png" alt="인스타그램_아이콘" />
+                                    </a>
+                                </li>
+                                <li class="twi">
+                                    <a href="#" title="twitter_link">
+                                        <img src="img/removebg_preview.png" alt="트위터_아이콘" />
+                                    </a>
+                                </li>
+                                <li class="yout">
+                                    <a href="#" title="youtube_link">
+                                        <img src="img/removebg_preview.png" alt="유튜브_아이콘" />
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="legalArea">
+                            <ul>
+                                <li><a href="#" title="Terms_of_Use">Terms of Use</a></li>
+                                <li><a href="#" title="Privacy_Notice">Privacy Notice</a></li>
+                                <li><a href="#" title="Cookie_Policy">Cookie Policy</a></li>
+                                <li><a href="#" title="Accessibility ">Accessibility </a></li>
+                            </ul>
+                        </div>
+                        <div class="copyArea">&copy; 2021 Audemars Piguet</div>
+                    </div>
+                </footer>
+            </div>
+            <div id="mob_footerWrap">
+                <footer id="mob_footer">
+                    <div class="mob_footer_top">
+                        <div class="lang">
+                            <a href="#" title="Change language / currency">
+                                <i class="icon">
+                                    <img src="img/lang_icon.png" alt="지구본_아이콘" />
+                                </i>
+                                <span class="text">Change language / currency</span>
+                            </a>
+                        </div>
+                        <div class="footerNav">
+                            <dl class="watch">
+                                <dt>WATCHES</dt>
+                                <dd><a href="#" title="All_Watches">All Watches</a></dd>
+                                <dd><a href="#" title="Our_Collections">Our Collections</a></dd>
+                                <dd><a href="#" title="New_Releases">New Releases</a></dd>
+                                <dd><a href="#" title="Find_a_Boutique">Find a Boutique</a></dd>
+                            </dl>
+                            <dl class="our">
+                                <dt>OUR WORLD</dt>
+                                <dd><a href="#" title="Born_in_Le_Brassus">Born in Le Brassus</a></dd>
+                                <dd><a href="#" title="Savoir-Faire">Savoir-Faire</a></dd>
+                                <dd><a href="#" title="Stories">Stories</a></dd>
+                                <dd><a href="#" title="Stay_connected">Stay connected</a></dd>
+                            </dl>
+                            <dl class="serv">
+                                <dt>SERVICES</dt>
+                                <dd><a href="#" title="All_services">All services</a></dd>
+                                <dd><a href="#" title="Extend_your_warranty">Extend your warranty</a></dd>
+                                <dd><a href="#" title="Contact us">Contact_us</a></dd>
+                                <dd><a href="#" title="FAQ">FAQ</a></dd>
+                            </dl>
+                            <dl class="comp">
+                                <dt>COMPANY</dt>
+                                <dd><a href="#" title="Careers">Careers</a></dd>
+                                <dd><a href="#" title="Press">Press</a></dd>
+                                <dd><a href="#" title="Musée Atelier">Musée Atelier</a></dd>
+                                <dd><a href="#" title="Foundation">Foundation</a></dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="mob_footer_bottom">
+                        <div class="iconArea">
+                            <ul>
+                                <li class="face">
+                                    <a href="#" title="facebook_link">
+                                        <img src="img/removebg_preview.png" alt="페이스북_아이콘" />
+                                    </a>
+                                </li>
+                                <li class="insta">
+                                    <a href="#" title="instagram_link">
+                                        <img src="img/removebg_preview.png" alt="인스타그램_아이콘" />
+                                    </a>
+                                </li>
+                                <li class="twi">
+                                    <a href="#" title="twitter_link">
+                                        <img src="img/removebg_preview.png" alt="트위터_아이콘" />
+                                    </a>
+                                </li>
+                                <li class="yout">
+                                    <a href="#" title="youtube_link">
+                                        <img src="img/removebg_preview.png" alt="유튜브_아이콘" />
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="legalArea">
+                            <ul>
+                                <li><a href="#" title="Terms_of_Use">Terms of Use</a></li>
+                                <li><a href="#" title="Privacy_Notice">Privacy Notice</a></li>
+                                <li><a href="#" title="Cookie_Policy">Cookie Policy</a></li>
+                                <li><a href="#" title="Accessibility ">Accessibility </a></li>
+                            </ul>
+                        </div>
+                        <div class="copyArea">&copy; 2021 Audemars Piguet</div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <!-- <script src="./js/javascript.js"></script> -->
+        <!-- <script src="./js/header.js"></script> -->
+    </body>
+</html>

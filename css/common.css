@@ -1,0 +1,147 @@
+/*############## font-face ###############*/
+@font-face {
+    font-family: "nor";
+    src: url("../font/Kanit-Thin.woff");
+}
+@font-face {
+    font-family: "italic";
+    src: url("../font/Amiri-Italic.woff");
+}
+
+/*################## footerWrap ###################*/
+#footerWrap {
+    width: 100%;
+    height: 500px;
+    background-color: #02291f;
+}
+#footer {
+    width: 1703px;
+    height: 350px;
+    padding: 100px 100px 50px;
+}
+
+#footer .footer_top {
+    width: 100%;
+    height: 250px;
+}
+#footer .footer_top .lang {
+    width: 503px;
+    height: 100%;
+    float: left;
+}
+#footer .footer_top .lang a {
+    display: block;
+    width: 250px;
+    font-size: 15px;
+}
+#footer .footer_top .lang a .icon {
+    display: block;
+    width: 24px;
+    margin-right: 20px;
+    height: 24px;
+    float: left;
+}
+#footer .footer_top .lang a .icon img {
+    width: 100%;
+}
+#footer .footer_top .lang a .text {
+    display: block;
+    width: 200px;
+    line-height: 24px;
+    float: left;
+}
+
+#footer .footer_top .footerNav {
+    width: 1200px;
+    height: 100%;
+    float: left;
+}
+#footer .footer_top .footerNav dl {
+    width: 300px;
+    height: 100%;
+    float: left;
+}
+#footer .footer_top .footerNav dt {
+    height: 50px;
+    color: #fff;
+    font-weight: 700;
+}
+#footer .footer_top .footerNav dd {
+    height: 35px;
+    font-size: 15px;
+}
+#footer .footer_top .footerNav dd a:hover {
+    color: #8fa09c;
+}
+
+#footer .footer_bottom {
+    width: 100%;
+    height: 30px;
+    padding: 35px 0;
+}
+#footer .footer_bottom .iconArea {
+    width: 503px;
+    height: 100%;
+    float: left;
+}
+#footer .footer_bottom .iconArea ul {
+    width: 280px;
+    padding-right: 403px;
+    height: 100%;
+}
+#footer .footer_bottom .iconArea li {
+    width: 30px;
+    margin-right: 20px;
+    height: 30px;
+    overflow: hidden;
+    float: left;
+}
+#footer .footer_bottom .iconArea li a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+#footer .footer_bottom .iconArea .face a img {
+    margin-left: -45px;
+    margin-top: -5px;
+}
+#footer .footer_bottom .iconArea .insta a img {
+    margin-left: -7px;
+    margin-top: -5px;
+}
+#footer .footer_bottom .iconArea .twi a img {
+    margin-left: -5px;
+    margin-top: -81px;
+}
+#footer .footer_bottom .iconArea .yout a img {
+    margin-left: -84px;
+    margin-top: -6px;
+}
+
+#footer .footer_bottom .legalArea {
+    width: 900px;
+    height: 100%;
+    float: left;
+}
+#footer .footer_bottom .legalArea ul {
+    width: 100%;
+}
+#footer .footer_bottom .legalArea li {
+    display: inline;
+    font-size: 14px;
+    padding-right: 60px;
+}
+#footer .footer_bottom .legalArea li a:hover {
+    color: #8fa09c;
+}
+
+#footer .footer_bottom .copyArea {
+    width: 300px;
+    height: 100%;
+    color: #fff;
+    float: left;
+}
+
+#mob_footerWrap {
+    display: none;
+}
