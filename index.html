@@ -6,11 +6,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="js/jquery-ui.min.js"></script>
-        <script defer src="./js/jQuery.js"></script>
+        <!-- <script defer src="./js/jQuery.js"></script> -->
+        <script defer src="./js/jQuery2.js"></script>
         <script src="./js/javascript.js"></script>
         <link rel="stylesheet" href="./css/reset.css" />
         <link rel="stylesheet" href="./css/common.css" />
-        <!-- <link rel="stylesheet" href="./media/tablet.css" /> -->
         <!-- <link rel="stylesheet" href="./css/style.css" /> -->
         <style>
             /*################## skipNav ###################*/
@@ -46,7 +46,23 @@
                 height: 142px;
                 position: absolute;
                 z-index: 1;
+
+                /* gpt */
+                transition: all 0.3s ease;
+                background-color: rgba(0, 0, 0, 0);
             }
+            /* gpt */
+            #headerWrap.fixed {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+            }
+            #headerWrap.active {
+                height: 1100px;
+                background-color: #fff;
+            }
+
             #header {
                 width: 1703px;
                 height: 42px;
@@ -79,6 +95,16 @@
                 border-radius: 1px;
                 margin: 8px auto 0;
             }
+            /* gpt */
+            #navArea .allMenu a span,
+            #headerWrap.active #navArea .allMenu a span {
+                transition: background-color 0.3s ease;
+            }
+
+            #headerWrap.active #navArea .allMenu a span {
+                background-color: #000;
+            }
+
             #navArea .gnb {
                 width: 685px;
                 height: 100%;
@@ -89,6 +115,22 @@
                 margin-left: 80px;
                 color: #fff;
                 cursor: pointer;
+            }
+            /* gpt */
+            #navArea .gnb li,
+            #navArea .gnb li a,
+            #infoMenu .servicesArea li a,
+            #headerWrap.active #navArea .gnb li,
+            #headerWrap.active #navArea .gnb li a,
+            #headerWrap.active #infoMenu .servicesArea li a {
+                transition: color 0.3s ease;
+                color: #fff;
+            }
+            /* gpt */
+            #headerWrap.active #navArea .gnb li,
+            #headerWrap.active #navArea .gnb li a,
+            #headerWrap.active #infoMenu .servicesArea li a {
+                color: #000;
             }
 
             #logoArea {
@@ -102,7 +144,15 @@
             }
             #logoArea a img {
                 width: 100%;
+
+                /* gpt */
+                transition: all 0.3s ease;
             }
+            /* gpt */
+            #headerWrap.active #logoArea img {
+                content: url("img/logoB.svg");
+            }
+
             #mob_logo {
                 display: none;
             }
@@ -146,10 +196,26 @@
             #infoMenu .iconArea .search img {
                 margin-left: -30px;
             }
+            /* gpt */
+            #headerWrap.active #infoMenu .iconArea .login img {
+                margin-left: -64px;
+            }
+            #headerWrap.active #infoMenu .iconArea .search img {
+                margin-left: -95px;
+            }
+
+            /* gpt */
+            #menuArea,
+            .watch_list,
+            #our_list,
+            #service_list {
+                display: none;
+            }
 
             /*##### menuArea #####*/
             #menuArea {
                 width: 100%;
+                height: 850px;
             }
 
             /*### menu_inn ###*/
@@ -356,7 +422,7 @@
                 width: 39px;
                 height: 39px;
                 line-height: 40px;
-                border: 1px solid #fff;
+                border: 2px solid #fff;
                 color: #fff;
                 text-align: center;
                 font-size: 25px;
@@ -442,7 +508,7 @@
             #service_list .list .slideArea .btnArea p {
                 width: 39px;
                 height: 39px;
-                border: 1px solid #fff;
+                border: 2px solid #fff;
                 text-align: center;
                 line-height: 36px;
                 font-size: 20px;
@@ -530,7 +596,7 @@
             #our_list .list .slideArea .btnArea p {
                 width: 39px;
                 height: 39px;
-                border: 1px solid #fff;
+                border: 2px solid #fff;
                 text-align: center;
                 line-height: 36px;
                 font-size: 20px;
@@ -725,7 +791,7 @@
                 line-height: 50px;
                 text-align: center;
                 font-size: 30px;
-                border: 1px solid #fff;
+                border: 2px solid #fff;
                 border-radius: 25px;
                 position: absolute;
                 top: 300px;
@@ -1032,7 +1098,7 @@
                 line-height: 50px;
                 text-align: center;
                 font-size: 30px;
-                border: 1px solid #fff;
+                border: 2px solid #fff;
                 border-radius: 25px;
                 position: absolute;
                 top: 300px;
@@ -1276,7 +1342,19 @@
             /*################### 미디어 쿼리 영역 #######################*/
             /*##### 스마트폰 세로버전 #####*/
             @media all and (min-width: 320px) and (max-width: 480px) {
-                /*### headerWrap ###*/
+                /* 공통 모바일 컨테이너 */
+                .mobile-container {
+                    width: 280px;
+                    margin: 0 auto;
+                    padding: 50px 10px;
+                }
+
+                img {
+                    max-width: 100%;
+                    height: auto;
+                }
+
+                /* Header */
                 #headerWrap {
                     height: 100px;
                 }
@@ -1287,7 +1365,6 @@
                     margin: 0 auto;
                     display: flex;
                 }
-
                 #navArea {
                     width: 90px;
                 }
@@ -1296,11 +1373,12 @@
                     height: 20px;
                     margin-top: 0;
                 }
-                #navArea .gnb {
-                    display: none;
-                }
-
-                #logoArea {
+                #navArea .gnb,
+                #logoArea,
+                #infoMenu .servicesArea,
+                #infoMenu .iconArea .login,
+                .watch_list,
+                #footerWrap {
                     display: none;
                 }
                 #mob_logo {
@@ -1312,31 +1390,16 @@
                     width: 33px;
                     margin: 0 auto;
                 }
-                #mob_logo a img {
-                    width: 100%;
-                }
-
                 #infoMenu {
                     width: 30px;
                     margin-left: 60px;
                 }
-                #infoMenu .servicesArea {
-                    display: none;
-                }
                 #infoMenu .iconArea {
                     width: 100%;
-                    float: none;
                     margin-top: 0;
                 }
                 #infoMenu .iconArea li {
                     margin-right: 0;
-                }
-                #infoMenu .iconArea .login {
-                    display: none;
-                }
-
-                .watch_list {
-                    display: none;
                 }
 
                 /*### container ###*/
@@ -2505,7 +2568,7 @@
                     line-height: 40px;
                     text-align: center;
                     font-size: 30px;
-                    border: 1px solid #fff;
+                    border: 2px solid #fff;
                     border-radius: 20px;
                     position: absolute;
                     top: 250px;
@@ -2652,7 +2715,7 @@
                     line-height: 40px;
                     text-align: center;
                     font-size: 30px;
-                    border: 1px solid #fff;
+                    border: 2px solid #fff;
                     border-radius: 20px;
                     position: absolute;
                     top: 250px;
@@ -2844,8 +2907,8 @@
                         <nav class="gnb">
                             <h2>네비게이션 영역</h2>
                             <ul>
-                                <li class="watches">Watches</li>
-                                <li class="world">Our World</li>
+                                <li class="watches"><a href="#">Watch</a></li>
+                                <li class="world"><a href="#">Our World</a></li>
                                 <li><a href="sub/stories.html" title="stories">Stories</a></li>
                             </ul>
                         </nav>
