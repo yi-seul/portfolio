@@ -1,5 +1,52 @@
 jQuery(document).ready(function () {
     /** header **/
+    $(window).on("scroll", function () {
+        if (openSection) {
+            // 메뉴가 열려있으면 헤더는 흰색 유지
+            applyScrolledStyle();
+        } else {
+            if ($(this).scrollTop() > 50) {
+                applyScrolledStyle();
+            } else {
+                applyDefaultStyle();
+            }
+        }
+    });
+
+    function applyScrolledStyle() {
+        $("#headerWrap").css({
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            backgroundColor: "#fff",
+            zIndex: 1000,
+        });
+        $(
+            "#navArea .gnb li, #navArea .gnb li a, #navArea .allMenu, #navArea .allMenu a, #infoMenu .servicesArea li a"
+        ).css({ color: "#000" });
+        $("#navArea .allMenu a span").css({ backgroundColor: "#000" });
+        $("#logoArea a img").attr("src", "img/logoB.svg");
+        $("#infoMenu .iconArea .login img").css({ marginLeft: "-64px" });
+        $("#infoMenu .iconArea .search img").css({ marginLeft: "-95px" });
+    }
+    function applyDefaultStyle() {
+        $("#headerWrap").css({
+            position: "absolute", // 원래 상태로 복귀
+            top: 0,
+            left: 0,
+            width: "100%",
+            backgroundColor: "transparent",
+            zIndex: "",
+        });
+        $(
+            "#navArea .gnb li, #navArea .gnb li a, #navArea .allMenu, #navArea .allMenu a, #infoMenu .servicesArea li a"
+        ).css({ color: "#fff" });
+        $("#navArea .allMenu a span").css({ backgroundColor: "#fff" });
+        $("#logoArea a img").attr("src", "img/logo.svg");
+        $("#infoMenu .iconArea .login img").css({ marginLeft: "2px", marginTop: "1px" });
+        $("#infoMenu .iconArea .search img").css({ marginLeft: "-30px" });
+    }
 
     // 현재 열려있는 메뉴 섹션을 저장하는 변수 (아무것도 안열려있으면 null)
     let openSection = null;
@@ -29,23 +76,13 @@ jQuery(document).ready(function () {
     // 헤더 스타일 업데이트 함수
     function updateHeaderStyle() {
         if (openSection) {
-            $("#headerWrap").css({ backgroundColor: "#fff" });
-            $(
-                "#navArea .gnb li, #navArea .gnb li a, #navArea .allMenu, #navArea .allMenu a, #infoMenu .servicesArea li a"
-            ).css({ color: "#000" });
-            $("#navArea .allMenu a span").css({ backgroundColor: "#000" });
-            $("#logoArea a img").attr("src", "img/logoB.svg");
-            $("#infoMenu .iconArea .login img").css({ marginLeft: "-64px" });
-            $("#infoMenu .iconArea .search img").css({ marginLeft: "-95px" });
+            applyScrolledStyle(); // 메뉴 열렸을 땐 무조건 흰색 유지
         } else {
-            $("#headerWrap").css({ backgroundColor: "transparent" });
-            $(
-                "#navArea .gnb li, #navArea .gnb li a, #navArea .allMenu, #navArea .allMenu a, #infoMenu .servicesArea li a"
-            ).css({ color: "#fff" });
-            $("#navArea .allMenu a span").css({ backgroundColor: "#fff" });
-            $("#logoArea a img").attr("src", "img/logo.svg");
-            $("#infoMenu .iconArea .login img").css({ marginLeft: "2px", marginTop: "1px" });
-            $("#infoMenu .iconArea .search img").css({ marginLeft: "-30px" });
+            if ($(window).scrollTop() > 50) {
+                applyScrolledStyle();
+            } else {
+                applyDefaultStyle();
+            }
         }
     }
 
@@ -55,10 +92,43 @@ jQuery(document).ready(function () {
         return false;
     }
 
-    $(".allMenu").click(() => toggleMenu("menu", "#menuArea"));
-    $(".watches").click(() => toggleMenu("watch", ".watch_list"));
-    $(".world").click(() => toggleMenu("world", "#our_list"));
-    $(".service").click(() => toggleMenu("service", "#service_list"));
+    $(".allMenu").click(function (e) {
+        e.preventDefault();
+        toggleMenu("menu", "#menuArea");
+    });
+
+    $(".watches").click(function (e) {
+        e.preventDefault();
+        toggleMenu("watch", ".watch_list");
+    });
+
+    $(".world").click(function (e) {
+        e.preventDefault();
+        toggleMenu("world", "#our_list");
+    });
+
+    $(".service").click(function (e) {
+        e.preventDefault();
+        toggleMenu("service", "#service_list");
+    });
+
+    // let maxSlides = $(".watch_list .list .slideArea ul li").length;
+    // let slideWidth = 360;
+    // let currentSlide = 0;
+
+    // $(".nextBtn").click(function () {
+    //     if (currentSlide < maxSlides - 1) {
+    //         currentSlide++;
+    //         $(".slideArea ul").animate({ marginLeft: -slideWidth * currentSlide }, 500, "linear");
+    //     }
+    // });
+
+    // $(".prevBtn").click(function () {
+    //     if (currentSlide > 0) {
+    //         currentSlide--;
+    //         $(".slideArea ul").animate({ marginLeft: -slideWidth * currentSlide }, 500, "linear");
+    //     }
+    // });
 
     /** container **/
 
@@ -89,9 +159,12 @@ jQuery(document).ready(function () {
         });
     }
 
-    // #latest_inn과 #collect_inn 슬라이더 초기화
+    // 슬라이더 초기화
     initSlider("#latest_inn", 480);
     initSlider("#collect_inn", 480);
+    initSlider(".watch_list", 350);
+    initSlider("#our_list", 470);
+    initSlider("#service_list", 470);
 
     // artArea hover 효과
     $("#artArea").on("mouseover", function () {
