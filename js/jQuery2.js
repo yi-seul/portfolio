@@ -112,24 +112,6 @@ jQuery(document).ready(function () {
         toggleMenu("service", "#service_list");
     });
 
-    // let maxSlides = $(".watch_list .list .slideArea ul li").length;
-    // let slideWidth = 360;
-    // let currentSlide = 0;
-
-    // $(".nextBtn").click(function () {
-    //     if (currentSlide < maxSlides - 1) {
-    //         currentSlide++;
-    //         $(".slideArea ul").animate({ marginLeft: -slideWidth * currentSlide }, 500, "linear");
-    //     }
-    // });
-
-    // $(".prevBtn").click(function () {
-    //     if (currentSlide > 0) {
-    //         currentSlide--;
-    //         $(".slideArea ul").animate({ marginLeft: -slideWidth * currentSlide }, 500, "linear");
-    //     }
-    // });
-
     /** container **/
 
     // 공통 슬라이더 초기화 함수
