@@ -2,12 +2,14 @@
 
 > **"기본에 충실하며, 사용자 중심의 인터페이스를 구축하는 퍼블리셔 박이슬입니다."**
 
-본 프로젝트는 저의 기술적 역량과 프로젝트 결과물을 한눈에 확인할 수 있도록 제작된 개인 포트폴리오 웹사이트입니다. 시맨틱 마크업과 유지보수가 용이한 CSS 구조를 지향하며 제작되었습니다.
+본 프로젝트는 저의 기술적 역량과 프로젝트 결과물을 한눈에 확인할 수 있도록 제작된 개인 포트폴리오 웹사이트입니다.
+시맨틱 마크업을 기반으로 구조를 설계하고, CSS와 JavaScript를 기능 단위로 분리하여 유지보수성을 고려해 제작했습니다.
 
 ## 🔗 Link
 
 - **Live Demo:** [https://parkyiseul-portfolio.netlify.app/](https://parkyiseul-portfolio.netlify.app/)
 - **Repository:** [https://github.com/yi-seul/portfolio](https://github.com/yi-seul/portfolio)
+- **Notion:** [https://www.notion.so/170464c3e67c4ed78dd9c35efd63ea24?source=copy_link]
 
 ---
 
@@ -24,7 +26,6 @@
 
 ## 📌 Project Overview
 
-- **제작 기간:** 202X.XX ~ 202X.XX (약 X주)
 - **기여도:** 100% (개인 프로젝트)
 - **주요 기능:** \* 자기소개 및 보유 스킬 시각화
     - 프로젝트 아카이빙 및 상세 내용 모달/링크 연결
@@ -70,3 +71,43 @@
 ├── images/              # 프로젝트 사용 이미지 리소스
 └── README.md            # 프로젝트 설명서
 ```
+
+---
+
+## 🧠 Development Strategy
+
+### ✔ 구조 설계 우선 접근
+
+UI 구현 이전에 마크업 구조를 먼저 설계하여 레이아웃 의존도를 최소화했습니다.
+
+### ✔ 유지보수 고려
+
+공통 스타일과 페이지 전용 스타일을 분리하여 확장성을 확보했습니다.
+
+### ✔ 전역 오염 최소화
+
+JavaScript는 기능 단위로 분리하여 전역 변수 사용을 최소화했습니다.
+
+---
+
+## 🧩 Trouble Shooting
+
+### 1. 반응형 전환 시 레이아웃 깨짐 현상
+
+→ flex 및 width 단위 재정의로 해결
+
+### 2. 스크롤 이벤트 과다 실행
+
+→ 이벤트 로직 최적화 및 조건 분기 처리
+
+### 3. z-index 충돌
+
+→ stacking context 재정리로 해결
+
+---
+
+## 🚀 Deployment
+
+- Netlify를 활용한 정적 웹 배포
+- GitHub 저장소 연동을 통한 관리
+- 배포 후 브라우저 콘솔 에러 0건 확인
