@@ -23,7 +23,7 @@ jQuery(document).ready(function () {
             zIndex: 1000,
         });
         $(
-            "#navArea .gnb li, #navArea .gnb li a, #navArea .allMenu, #navArea .allMenu a, #infoMenu .servicesArea li a"
+            "#navArea .gnb li, #navArea .gnb li a, #navArea .allMenu, #navArea .allMenu a, #infoMenu .servicesArea li a",
         ).css({ color: "#000" });
         $("#navArea .allMenu a span").css({ backgroundColor: "#000" });
         $("#logoArea a img").attr("src", "img/logoB.svg");
@@ -40,7 +40,7 @@ jQuery(document).ready(function () {
             zIndex: "",
         });
         $(
-            "#navArea .gnb li, #navArea .gnb li a, #navArea .allMenu, #navArea .allMenu a, #infoMenu .servicesArea li a"
+            "#navArea .gnb li, #navArea .gnb li a, #navArea .allMenu, #navArea .allMenu a, #infoMenu .servicesArea li a",
         ).css({ color: "#fff" });
         $("#navArea .allMenu a span").css({ backgroundColor: "#fff" });
         $("#logoArea a img").attr("src", "img/logo.svg");
